@@ -30,17 +30,21 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testLegend() throws Exception {
+	public void testSecretWeapon() throws Exception {
 		/**
 		 * TODO
 		 * 
 		 * 전설의 무기를 만드세요.
-		 * 전설의 무기는 데미지가 5로 고정입니다.
-		 * 레벨에 비례하여 데미지가 증가합니다.
+		 * 전설의 무기는 바로 크리스탈 의자입니다!
+		 * 평소에는 데미지가 1로 고정이지만, 크리스탈 의자는 100의 고정데미지를 입힙니다.
 		 */
-//		Player player = new Player(new LegendWeapon());
 		
-		fail("전설의 무기는 데미지가 기본데미지가 5로 고정이며, 레벨에 비례하여 증가한다.");
+		Player player = new Player(new SwardWeapon(30));
+		
+//		TODO Player player = new Player(new Chair());
+		
+		assertThat("기본 재료의 의자는 1의 데미지만 입힙니다.", player.attack(), is(1));
+		assertThat("크리스탈 의자는 100의 데미지를 입힙니다.", player.attack(), is(100));
 	}
 	
 }
