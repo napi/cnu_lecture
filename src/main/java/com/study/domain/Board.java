@@ -15,7 +15,7 @@ public class Board {
 	private String name;
 	private Date createAt;
 	
-	protected Board() {
+	public Board() {
 		
 	}
 	
