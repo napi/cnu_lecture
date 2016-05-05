@@ -21,6 +21,7 @@ import com.study.domain.Popo;
 import com.study.domain.Post;
 import com.study.domain.PostForm;
 import com.study.exception.ResourceNotFoundException;
+import com.study.repository.mybatis.CnuRepository;
 import com.study.service.BoardService;
 
 @RestController
@@ -33,6 +34,8 @@ public class BoardController {
 	private MessageSource messageSource;
 //	private MessageSourceAccessor messageSource;
 	
+	@Autowired
+	private CnuRepository cnuRepository;
 	
 	@RequestMapping(value = "/{boardName}/info", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public ResponseEntity<Board> info(@PathVariable String boardName) {
@@ -67,6 +70,11 @@ public class BoardController {
 		return ResponseEntity.ok(boardService.erasePost(postId));
 	}
 
+	@RequestMapping(value = "/list")
+	public ResponseEntity<List<Board>> listBoard() {
+		return ResponseEntity.ok(cnuRepository.selectBoardList());
+	}
+	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<Map<String, Object>> resourceNotFoundException(ResourceNotFoundException exception, Locale locale) {
 		System.out.println(exception.getError());
