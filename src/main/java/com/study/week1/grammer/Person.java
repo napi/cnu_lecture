@@ -3,6 +3,7 @@ package com.study.week1.grammer;
 public class Person {
 	private int age;
 	private String name;
+	private long mmr;		// this is secret infomation.
 	
 	public Person() {
 	}
@@ -25,6 +26,15 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public long getMmr() {
+		return mmr;
+	}
+
+	public void setMmr(long mmr) {
+		this.mmr = mmr;
+	}
+	
 	
 	
 }
