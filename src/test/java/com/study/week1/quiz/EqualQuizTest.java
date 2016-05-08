@@ -65,4 +65,12 @@ public class EqualQuizTest {
 		assertThat("Hello == 'He' + 'llo' => false", s1.equals(s4), is(true));
 		assertThat("Hello == 'He' + 'llo' => false", s1 == s4, is(true));
 	}
+	
+	@Test
+	public void testNewString() throws Exception {
+		String s1 = new String("Hello");
+		String s2 = new String("Hello");
+		
+		assertThat(s1 == s2, is(true));
+	}
 }
