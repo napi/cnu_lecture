@@ -1,5 +1,6 @@
 package com.study.controller;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -21,6 +22,8 @@ import com.study.domain.Popo;
 import com.study.domain.Post;
 import com.study.domain.PostForm;
 import com.study.exception.ResourceNotFoundException;
+import com.study.repository.legacy.ConnectionRepository;
+import com.study.repository.mybatis.CnuRepository;
 import com.study.service.BoardService;
 
 @RestController
@@ -33,6 +36,11 @@ public class BoardController {
 	private MessageSource messageSource;
 //	private MessageSourceAccessor messageSource;
 	
+	@Autowired
+	private CnuRepository cnuRepository;
+	
+	@Autowired
+	private ConnectionRepository connectionRepository;
 	
 	@RequestMapping(value = "/{boardName}/info", method = {RequestMethod.GET, RequestMethod.HEAD})
 	public ResponseEntity<Board> info(@PathVariable String boardName) {
@@ -67,6 +75,16 @@ public class BoardController {
 		return ResponseEntity.ok(boardService.erasePost(postId));
 	}
 
+	@RequestMapping(value = "/listMybatis")
+	public ResponseEntity<List<Board>> listMybatis() {
+		return ResponseEntity.ok(cnuRepository.selectBoardList());
+	}
+	
+	@RequestMapping(value = "/listLegacy")
+	public ResponseEntity<List<Board>> listLegacy() throws SQLException {
+		return ResponseEntity.ok(connectionRepository.selectBoardList());
+	}
+	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<Map<String, Object>> resourceNotFoundException(ResourceNotFoundException exception, Locale locale) {
 		System.out.println(exception.getError());
