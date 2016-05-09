@@ -13,22 +13,22 @@ public class Another {
 	}
 	
 	// private 은 외부에서 접근할 수 없다.
-	public String getAccessParentName() {
+	public String getAccessParentByPrivate() {
 //		return accessParent.getName();		
 		return null;
 	}
 	
 	// default 는 같은 패키지에서 접근할 수 있다.
 	public String getAccessParentNameByDefault() {
-		return accessParent.getNameByDefault();
+		return "Another : " + accessParent.getNameByDefault();
 	}
 
 	// protected 는 같은 패키지에서 접근할 수 있다.
 	public String getAccessParentNameByProtected() {
-		return accessParent.getNameByProtected();
+		return "Another : " + accessParent.getNameByProtected();
 	}
 
 	public String getAccessParentNameByPublic() {
-		return accessParent.getNameByPublic();
+		return "Another : " + accessParent.getNameByPublic();
 	}
 }

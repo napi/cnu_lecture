@@ -11,12 +11,14 @@ public class RadioObserver implements Observer {
 		this.frequency = frequency;
 	}
 
-	public void broadcast(String s) {
+	public void onAir(String s) {
+		System.out.println("안녕하세요. Riot 라디오 입니다.");
 		System.out.println(s);
+		System.out.println("감사합니다.");
 	}
 	
 	@Override
 	public void update(float temperature, float humidity, float pressure) {
-		broadcast(String.format("현재 온도는 %f 이며, 습도는 %f, 기압은 %f 입니다.",  temperature, humidity, pressure));
+		onAir(String.format("현재 온도는 %f 이며, 습도는 %f, 기압은 %f 입니다.",  temperature, humidity, pressure));
 	}
 }
