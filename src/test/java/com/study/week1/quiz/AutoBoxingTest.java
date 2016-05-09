@@ -12,6 +12,6 @@ public class AutoBoxingTest {
 	public void testName() throws Exception {
 		AutoBoxing autoBoxing = new AutoBoxing();
 		
-		assertThat("결과를 추측해보세요.", new String(autoBoxing.getAutoBoxing()), is(""));
+		assertThat("결과를 추측해보세요.", new String(autoBoxing.getAutoBoxing()), is("0Ab"));
 	}
 }
