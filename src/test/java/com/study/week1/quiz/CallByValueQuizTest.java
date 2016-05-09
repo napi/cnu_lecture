@@ -24,9 +24,9 @@ public class CallByValueQuizTest {
 		quiz.convert(s);
 		quiz.convert(p);
 		
-		assertThat(i, is(0));
-		assertThat(integer, is(9));
-		assertThat(s, is(""));
-		assertThat(p.getAge(), is(0));
+		assertThat(i, is(3));
+		assertThat(integer, is(7));
+		assertThat(s, is("HELLO"));
+		assertThat(p.getAge(), is(19));
 	}
 }
