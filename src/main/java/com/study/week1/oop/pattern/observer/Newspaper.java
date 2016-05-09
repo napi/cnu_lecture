@@ -3,7 +3,7 @@ package com.study.week1.oop.pattern.observer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Newspaper {
+public class Newspaper implements Observer{
 	private Map<NewsType, String> newsMap;
 	
 	public Newspaper() {
@@ -29,4 +29,10 @@ public class Newspaper {
 		SPORTS,
 		ECONOMY
 	}
+
+	@Override
+    public void update(float temperature, float humidity, float pressure){
+        System.out.println(String.format("지금 기온은 %f , 습도는 %f", temperature, humidity));
+    }
+
 }
