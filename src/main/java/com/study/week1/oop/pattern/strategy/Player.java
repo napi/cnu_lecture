@@ -24,10 +24,10 @@ public class Player {
 	public int attack() {
 		if (weaponStrategy == null) {
 			log.info("[{}] 가 맨손으로 공격하여 {}의 데미지를 가합니다.", name, 1);
-		} else {
-			log.info("[{}] 가 공격하여 {}의 데미지를 가합니다.", name, this.weaponStrategy.damage());	
+			return 1;
 		}
 		
+		log.info("[{}] 가 공격하여 {}의 데미지를 가합니다.", name, this.weaponStrategy.damage());	
 		return this.weaponStrategy.damage();
 	}
 
