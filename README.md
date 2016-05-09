@@ -23,12 +23,13 @@
 4. git merge upstream/week1
 5. 자신의 PC에 있는 Player.java 파일이 "https://github.com/napi/cnu_lecture/blob/week1/src/main/java/com/study/week1/oop/pattern/strategy/Player.java" 와 동일한지 확인한다. 동일하지 않다면 이 후 숙제를 진행할 수 없습니다. 
 
-##### AccessParentTest.java 파일의 테스트 코드를모두 Success가 되도록 수정합니다.
+##### 숙제 내용
+> ##### AccessParentTest.java 파일의 테스트 코드를모두 Success가 되도록 수정합니다.
 1. 코드상에 TODO 등으로 설명이 들어 있습니다. assertThat 안의 is(..)를 수정해서 test를 고칩니다.
 2. 77번 라인의 fail("Expect exception"); 은 의도한 내용입니다. @Test 어노테이션의 expected 기능을 이용해서 test를 고칩니다.
 3. AccessParentTest.java 이외의 파일은 고치지 않도록 합니다.
 
-##### PlayerTest.java 파일의 테스트 코드를 모두 Success가 되도록 수정합니다.
+> ##### PlayerTest.java 파일의 테스트 코드를 모두 Success가 되도록 수정합니다.
 1. 고쳐야 하는 파일은 PlayerTest.java, BowWeapon.java, AxeWeapon.java, Chair.java 4개 입니다.
 2. PlayerTest.java 파일에서 고쳐야 하는 유일한 곳은 73번째 라인의 주석 입니다. 해당 주석을 풀었을때 테스트 코드가 정상적으로 작동해야 합니다.
 
