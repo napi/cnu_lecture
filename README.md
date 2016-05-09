@@ -12,7 +12,17 @@
 4. git merge upstream/week1
 
 - - -
- 
+### 05/09 Local PC 에서 프로젝트가 올라가지 않는 오류
+- Jenkins 가 8080 Port를 선점
+ - Jenkins와 함께 사용할 수 있도록 Java 프로젝트의 Port 를 8000으로 바꾸도록 하겠습니다.
+- IntelliJ 에서 H2 Library 를 가져 오지 못하는 문제
+ - 확인해보니 IntelliJ 에서 maven 의 scope 이 provided 로 지정되어 있을 경우, eclipse 와 다르게 동작한다고 하네요. IntelliJ 의 설정을 변경하거나, 프로젝트의 profile 등을 바꾸는 등의 방법이 있으나, 이번 프로젝트와는 연관이 없으므로 가장 간단하게 scope 를 compile 로 변경하도록 하겠습니다.
+- Eclipse 에서 maven 빌드가 실패
+ - 아직 정확한 원인을 파악하지 못했습니다. 네트워크 문제였거나, eclipse 의 버전/설정의 문제로 짐작됩니다. 각자 집에서 재시도 해봐주시고 만약 실패시 eclipse 를 STS 로 바꿔 설치해보는 것을 권장해 드립니다.
+
+그 이외에 문제가 생기거나 해결이 안되시는게 있으시면 rokim@riotgames.com 으로 메일 주시기 바랍니다.
+
+
 ### 05/09 숙제
 ##### 선행작업
 + **숙제를 위해 소스코드를 수정했습니다. 위의 upstream merge 를 참고해서 아래 작업을 진행해주세요.**
