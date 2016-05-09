@@ -5,8 +5,8 @@ public class BowWeapon implements WeaponStrategy {
 	private int level;
 	
 	public BowWeapon(int damage, int level) {
-		this.damage = damage;
 		this.level = level;
+		this.damage =  damage +level;
 	}
 
 	@Override
