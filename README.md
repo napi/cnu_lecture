@@ -15,7 +15,7 @@
  
 ### 05/09 숙제
 ##### 선행작업
-+ 숙제를 위해 소스코드를 수정했습니다. 위의 upstream merge 를 참고해서 아래 작업을 진행해주세요.
++ **숙제를 위해 소스코드를 수정했습니다. 위의 upstream merge 를 참고해서 아래 작업을 진행해주세요.**
 
 1. git remote add upstream https://github.com/napi/cnu_lecture     (수업시간에 수행했다면 생략 가능)
 2. git fetch upstream
