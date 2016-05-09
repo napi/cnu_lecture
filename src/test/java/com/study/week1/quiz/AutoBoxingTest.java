@@ -23,6 +23,6 @@ public class AutoBoxingTest {
 		assertThat(integer, is(new Integer(10)));
 		
 		assertThat(integer == 10, is(true));	
-		assertThat("Wrapper 끼리의 == 비교는... 안된다.", integer == new Integer(10), is(true));
+		assertThat("Wrapper 끼리의 == 비교는... 안된다.", integer == new Integer(10), is(false));
 	}
 }
