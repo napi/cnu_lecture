@@ -33,7 +33,7 @@ public class CallByReferenceExampleTest {
 		
 		// Client 2 (Admin)
 		Person robinFromAdmin = example.getPerson("robin");
-		robinFromAdmin.setMmr(1750L);
+		robinFromAdmin.setMmr(1750L); // 값을 수정해줬기 때문에.
 		assertThat(robinFromAdmin.getAge(), is(30));
 		assertThat(robinFromAdmin.getMmr(), is(1750L));
 
@@ -41,6 +41,6 @@ public class CallByReferenceExampleTest {
 		// Client 3
 		Person robinFromClient3 = example.getPerson("robin");
 		assertThat(robinFromClient3.getAge(), is(30));
-		assertThat(robinFromClient3.getMmr(), is(0L));
+		assertThat(robinFromClient3.getMmr(), is(1750L));
 	}
 }
