@@ -31,7 +31,7 @@ public class PlayerTest {
 	 */
 	@Test
 	public void testBow() throws Exception {
-		// TODO BowWeapon 코드를 수정해서 Test 코드를 고치시오.
+		// TODO BowWeapon 코드를 수정해서 Test 코드를 고치시오. clear-
 		player.setWeapon(new BowWeapon(10, 4));
 		assertThat("활의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(14));
 		
