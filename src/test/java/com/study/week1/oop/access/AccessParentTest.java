@@ -1,8 +1,9 @@
 package com.study.week1.oop.access;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,12 +29,12 @@ public class AccessParentTest {
 	 */
 	@Test
 	public void another() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent"));
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
 	}
 	
 	@Test
-	public void testAccessNameByDefault() {
-		assertThat("Children이 왜 Default 접근자를 사용해야 하는가? 정말로 필요하다면, 같은 페키지에 아답타를 만든다.", accessChildren.getNameByProtected(), is("AccessParent_Default"));
+	public void testAccessNameByProtected() {
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
 	}
 
 	@Test
@@ -41,30 +42,41 @@ public class AccessParentTest {
 		assertThat(accessChildren.onlyChildren(), is("onlyChildren"));		
 		assertThat(accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
 		
-		AccessParent accessChildrenCasted = (AccessParent)accessChildren;		
+		AccessParent accessParentCasted = (AccessParent)accessChildren;		
 //		accessChildrenCasted.onlyChildren();	compile error
 		
-		assertThat("나 부모로 캐스팅 된거 아닌가?", accessChildrenCasted.getNameByProtected(), is("AccessParent_Protected"));
+		// TODO Test코드를 수정해서 아래 fail을 해결
+		assertThat("parent 로 캐스팅 됐지만, 객체는 여전히 children의 속성을 갖고 있다.", 
+				accessParentCasted.getNameByProtected(), is("AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
 	}
 	
 	@Test
-	public void 래퍼러_형변환() throws Exception {
+	public void 랩퍼러_형변환() throws Exception {
 		float f = 123.4f;
 		int i = (int) f;
 		
 		assertThat("정상", i, is(123));
 
 		float f2 = i;
+
+		// TODO Test코드를 수정해서 아래 fail을 해결
 		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
 	}
 	
 	@Test
 	public void testException() throws Exception {
-//		AccessParent parent2 = (AccessParent)another;	// compile error
+		/* Compile error  
+		 * 
+		 * AccessChildren parentToChildren = (AccessParent)accessParent
+		 * AccessParent parent = (AccessParent)another;	// compile error
+		 * 
+		 * */
 		
 		Object obj = (Object)another;
 		AccessParent parent = (AccessParent)obj;
 		
-		fail("Expect exception");
+		fail("Expect exception");  // <-- 이 라인은 절대 삭제 하지 말것!!
+		
+		// TODO @Test annotation의 expected 를 이용해서 이 테스트를 완성할 것 
 	}
 }
