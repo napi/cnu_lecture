@@ -18,7 +18,4 @@ public class AccessParent {
 	public String getNameByPublic() {
 		return this.name + "_Public";
 	}
-	
-	
-
 }
