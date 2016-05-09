@@ -3,5 +3,6 @@
 .mvn/
 .project
 .settings/
-target/
+/target/
 /cnu_lecture/
+*.iml
