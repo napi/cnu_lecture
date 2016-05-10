@@ -44,15 +44,15 @@ public class WeatherDataCenterTest {
 		/**
 		 * Old 한 방식. 매번 반복적인 날씨 기사를 쓰는 것은 고통이다. 바꾸자!
 		 */
-		String weatherNews = "온도:25, 습도:30%, 기압:1.2";
-		newspaper.setNews(NewsType.WEATHER, weatherNews);
+//		String weatherNews = "온도:25, 습도:30%, 기압:1.2";
+//		newspaper.setNews(NewsType.WEATHER, weatherNews);
 		
 		
 		// 기상센터에서 자동으로 해주는 영역
 		WeatherDataCenter weatherData = new WeatherDataCenter();
+		weatherData.registerObserver(newspaper);
 		weatherData.setMeasurements(25f, 0.3f, 1.2f);
 		// 기상센터에서 자동으로 해주는 // 영역
-		
 		
 		assertThat(newspaper.getNews(NewsType.WEATHER), is("온도:25, 습도:30%, 기압:1.2"));
 	}
