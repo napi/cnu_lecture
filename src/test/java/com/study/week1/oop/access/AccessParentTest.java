@@ -33,7 +33,7 @@ public class AccessParentTest {
 	
 	@Test
 	public void testAccessNameByProtected() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class AccessParentTest {
 		float f2 = i;
 
 		// TODO Test코드를 수정해서 아래 fail을 해결
-		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
+		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123f));		
 	}
 	
 	@Test
