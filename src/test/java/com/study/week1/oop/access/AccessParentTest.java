@@ -28,12 +28,14 @@ public class AccessParentTest {
 	 */
 	@Test
 	public void another() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("Another : AccessParent_Default"));
+		//is "AccessParent_Default" but was "Another : AccessParent_Default" is의 내용만 수정
 	}
 	
 	@Test
 	public void testAccessNameByProtected() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
+		//is "AccessParent_Protected" but was "Child : AccessParent_Protected" is만 수정
 	}
 
 	@Test
@@ -46,7 +48,8 @@ public class AccessParentTest {
 		
 		// TODO Test코드를 수정해서 아래 fail을 해결
 		assertThat("parent 로 캐스팅 됐지만, 객체는 여전히 children의 속성을 갖고 있다.", 
-				accessParentCasted.getNameByProtected(), is("AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
+				accessParentCasted.getNameByProtected(), is("Child : AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
+		//is "AccessParent_Protected" but was "Child : AccessParent_Protexted" is안의 내용을 바꾼다.
 	}
 	
 	@Test
@@ -59,10 +62,11 @@ public class AccessParentTest {
 		float f2 = i;
 
 		// TODO Test코드를 수정해서 아래 fail을 해결
-		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
+		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.0f));	
+		//is 123.4F but was 123.0F is만 수정
 	}
 	
-	@Test
+	@Test(expected=ClassCastException.class)//java.lang.ClassCastException 예외 처리
 	public void testException() throws Exception {
 		/* Compile error  
 		 * 
@@ -71,11 +75,13 @@ public class AccessParentTest {
 		 * 
 		 * */
 		
-		Object obj = (Object)another;
+		Object obj = (Object)another; 
 		AccessParent parent = (AccessParent)obj;
 		
 		fail("Expect exception");  // <-- 이 라인은 절대 삭제 하지 말것!!
 		
 		// TODO @Test annotation의 expected 를 이용해서 이 테스트를 완성할 것 
+		//expected == try catch에서 발생하는 예외 정의
+		//ㅇ
 	}
 }
