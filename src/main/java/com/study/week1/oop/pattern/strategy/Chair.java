@@ -3,9 +3,10 @@ package com.study.week1.oop.pattern.strategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Chair {
+public class Chair implements WeaponStrategy{
 	Logger log = LoggerFactory.getLogger(this.getClass());
 	private Material material;
+	private int damage;
 	
 	
 	public Chair(Material material) {
@@ -25,5 +26,20 @@ public class Chair {
 		STONE,
 		IRON,
 		CRISTAL
+	}
+
+	@Override
+	public int damage()
+	{
+		switch(material){
+			case CRISTAL:
+				damage = 100;
+				break;
+			default:
+				damage = 2;
+				break;
+		}
+		
+		return damage;
 	}
 }
