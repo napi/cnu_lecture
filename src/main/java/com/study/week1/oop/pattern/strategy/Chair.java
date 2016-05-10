@@ -34,12 +34,10 @@ public class Chair implements WeaponStrategy {//implements 추가
 	@Override
 	public int damage() {
 		// PlayerTest 클래스의 assetThat을 보면 데미지가 정해져있음.
-		if(this.material.equals(Material.WOOD)){ //assertThat("기본 재료의 의자는 2의 데미지만 입힙니다.", player.attack(), is(2));
-			return 2;
-		}else if(this.material.equals(Material.CRISTAL)){//assertThat("크리스탈 의자는 100의 데미지를 입힙니다.", player.attack(), is(100));
+		if(this.material.equals(Material.CRISTAL)){//assertThat("크리스탈 의자는 100의 데미지를 입힙니다.", player.attack(), is(100));
 			return 100;
 		}
-		return 0;
+		return 2;//wood든 아니든 기본 2라고 한다..
 		
 	}
 }
