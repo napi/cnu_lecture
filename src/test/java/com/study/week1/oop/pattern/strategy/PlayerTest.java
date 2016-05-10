@@ -40,7 +40,7 @@ public class PlayerTest {
 	}
 
 	/**
-	 * 도끼의 공격력은 무기데미지 * Level 이다. 
+	 * 도끼의 공격력은 무기데미지 * Weight 이다. 
 	 * @throws Exception
 	 */
 	@Test
