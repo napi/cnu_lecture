@@ -11,6 +11,6 @@ public class AxeWeapon implements WeaponStrategy {
 
 	@Override
 	public int damage() {
-		return (int)(damage + weight);
+		return (int)(damage * weight); //assertThat is 내용을 보면 더하는게 아닌 곱하는거임
 	}
 }
