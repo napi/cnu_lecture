@@ -37,7 +37,8 @@ public class Chair implements WeaponStrategy {//implements 추가
 		if(this.material.equals(Material.CRISTAL)){//assertThat("크리스탈 의자는 100의 데미지를 입힙니다.", player.attack(), is(100));
 			return 100;
 		}
-		return 2;//wood든 아니든 기본 2라고 한다..
+		else
+			return 2;//wood든 아니든 기본 2라고 한다..
 		
 	}
 }
