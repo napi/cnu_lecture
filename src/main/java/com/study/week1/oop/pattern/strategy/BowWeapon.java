@@ -5,7 +5,7 @@ public class BowWeapon implements WeaponStrategy {
 	private int level;
 	
 	public BowWeapon(int damage, int level) {
-		this.damage = damage;
+		this.damage = damage + level;
 		this.level = level;
 	}
 
