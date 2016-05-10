@@ -35,7 +35,8 @@ public class AccessParentTest {
 	
 	@Test
 	public void testAccessNameByProtected() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+		// is("AccessParent_Protected") --> is("Child : AccessParent_Protected")
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
 	}
 
 	@Test
