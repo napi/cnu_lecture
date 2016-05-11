@@ -26,3 +26,4 @@ public class AutoBoxingTest {
 		assertThat("Wrapper 끼리의 == 비교는... 안된다.", integer == new Integer(10), is(false));
 	}
 }
+
