@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class WeatherDataCenter implements Subject{
-    private List<Observer> observerList;
+    private List<Observer> observerList;//TV인지 radio인지 몰라 
     private float temperature;
     private float humidity;
     private float pressure;

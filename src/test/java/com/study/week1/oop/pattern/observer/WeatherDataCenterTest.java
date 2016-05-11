@@ -16,10 +16,14 @@ public class WeatherDataCenterTest {
 		
 		RadioObserver radioObserver = new RadioObserver();
 		TVObserver tvObserver = new TVObserver();
+		Newspaper NewsObserver = new Newspaper();
+
 
 		weatherData.registerObserver(radioObserver);
 		weatherData.registerObserver(tvObserver);
-		
+		//observer에 브로드캐스트로 뿌려줌
+	      weatherData.registerObserver(NewsObserver);
+
 		weatherData.setMeasurements(25f, 0.4f, 1.1f);
 		
 		/**

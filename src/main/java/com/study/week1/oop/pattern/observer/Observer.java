@@ -12,3 +12,4 @@ public interface Observer {
 	 */
 	public void update(float temperature, float humidity, float pressure);
 }
+//API만 만들어준것. 정의만 해준것. 구현은 니가해
