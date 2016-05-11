@@ -1,8 +1,9 @@
 package com.study.week1.oop.access;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,12 +29,20 @@ public class AccessParentTest {
 	 */
 	@Test
 	public void another() {
+<<<<<<< HEAD
 		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("Another : AccessParent_Default"));
+=======
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
+>>>>>>> branch 'week1' of https://github.com/chw1787/cnu_lecture
 	}
 	
 	@Test
 	public void testAccessNameByProtected() {
+<<<<<<< HEAD
 		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
+=======
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+>>>>>>> branch 'week1' of https://github.com/chw1787/cnu_lecture
 	}
 
 	@Test
@@ -46,7 +55,11 @@ public class AccessParentTest {
 		
 		// TODO Test코드를 수정해서 아래 fail을 해결
 		assertThat("parent 로 캐스팅 됐지만, 객체는 여전히 children의 속성을 갖고 있다.", 
+<<<<<<< HEAD
 				accessParentCasted.getNameByProtected(), is("Child : AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
+=======
+				accessParentCasted.getNameByProtected(), is("AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
+>>>>>>> branch 'week1' of https://github.com/chw1787/cnu_lecture
 	}
 	
 	@Test
@@ -59,7 +72,11 @@ public class AccessParentTest {
 		float f2 = i;
 
 		// TODO Test코드를 수정해서 아래 fail을 해결
+<<<<<<< HEAD
 		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.0f));		
+=======
+		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
+>>>>>>> branch 'week1' of https://github.com/chw1787/cnu_lecture
 	}
 	
 	@Test(expected=Exception.class)
