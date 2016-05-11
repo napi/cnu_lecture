@@ -30,7 +30,7 @@ public class Chair implements WeaponStrategy {
 
 	public int damage() {
 		if(this.material.equals(material.CRISTAL))
-		return 100;
+			return 100;
 		else{
 			return 2;
 		}
