@@ -25,7 +25,7 @@ public class WeatherDataCenter implements Subject{
         	observerList.remove(o);
         }
     }
- 
+    // 각 observe에게 뿌려주는 역할을 함.
     @Override
     public void notifyObservers() {
         for (Observer observer : observerList) {

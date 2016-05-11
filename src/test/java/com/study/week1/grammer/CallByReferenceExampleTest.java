@@ -30,7 +30,7 @@ public class CallByReferenceExampleTest {
 		assertThat(robinFromClient1.getAge(), is(30));
 		assertThat(robinFromClient1.getMmr(), is(0L));
 		
-		
+		//값이 바뀔수 있다. Call by reference이 잘 돌아가다가 이유없는 버그가 생길 수 있다.
 		// Client 2 (Admin)
 		Person robinFromAdmin = example.getPerson("robin");
 		robinFromAdmin.setMmr(1750L);
