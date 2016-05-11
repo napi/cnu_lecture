@@ -71,7 +71,7 @@ public class AccessParentTest {
 		 * AccessParent parent = (AccessParent)another;	// compile error
 		 * 
 		 * */
-		
+		//어떤 객체든지 object로 변환가능하다. 근데 전혀 상관없는 AccessParent로 변환하려하니 exception발생
 		Object obj = (Object)another;
 		AccessParent parent = (AccessParent)obj;
 		
