@@ -5,3 +5,5 @@
 .settings/
 target/
 /cnu_lecture/
+.idea/
+*.iml
