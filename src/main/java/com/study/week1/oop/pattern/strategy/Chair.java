@@ -35,7 +35,7 @@ public class Chair implements WeaponStrategy {
 			case CRISTAL:
 				return 100;
 			default:
-				return 0;
+				return 2;
 		}
 	}
 }
