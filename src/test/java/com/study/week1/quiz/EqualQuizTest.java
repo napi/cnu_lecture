@@ -7,6 +7,8 @@ import static org.mockito.Mockito.*;
 
 import org.junit.Test;
 
+import com.study.week1.quiz.EqualQuiz;
+
 public class EqualQuizTest {
 	@Test
 	public void test() throws Exception {
