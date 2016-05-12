@@ -4,19 +4,20 @@ import com.study.week1.oop.access.AccessParent;
 
 public class AccessChildren extends AccessParent {
 	private String name = "AccessChilren";
-		
+
+	// @Override
 	public String getName() {
 		return this.name;
 	}
 	
 	// private 은 외부에서 접근할 수 없다.
-	public String getParentName() {
+	public String getNameByPrivate() {
 //		return accessParent.getName();		
 		return null;
 	}
 	
 	// default 는 상속으로 접근할 수 없다.
-	String getNameByDefault() {
+	public String getNameByDefault() {
 //		return super.getNameByDefault();
 		return null;
 	}
