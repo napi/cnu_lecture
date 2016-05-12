@@ -10,7 +10,7 @@ public class Player {
 	private WeaponStrategy weaponStrategy;
 	
 	public Player(String name) {
-		this.name = name;
+ 		this.name = name;
 	}
 	
 	public void setWeapon(WeaponStrategy strategy) {
