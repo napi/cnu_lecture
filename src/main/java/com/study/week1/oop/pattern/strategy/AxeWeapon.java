@@ -4,9 +4,9 @@ public class AxeWeapon implements WeaponStrategy {
 	private int level;
 	private float damage;
 	
-	public AxeWeapon(int damage, float weight) {
-		this.level = damage;
-		this.damage = weight;
+	public AxeWeapon(int level, float damage) {
+		this.level = level;
+		this.damage = damage;
 	}
 
 	@Override
