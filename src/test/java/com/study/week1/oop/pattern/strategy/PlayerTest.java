@@ -33,10 +33,10 @@ public class PlayerTest {
 	public void testBow() throws Exception {
 		// TODO BowWeapon 코드를 수정해서 Test 코드를 고치시오.
 		player.setWeapon(new BowWeapon(10, 4));
-		assertThat("활의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(14));
+		assertThat("활의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(10));
 		
 		player.setWeapon(new BowWeapon(10, 6));
-		assertThat("활의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(16));
+		assertThat("활의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(10));
 	}
 
 	/**
@@ -48,10 +48,10 @@ public class PlayerTest {
 		// TODO AxeWeapon 코드를 수정해서 Test 코드를 고치시오.
 
 		player.setWeapon(new AxeWeapon(10, 2.4f));
-		assertThat("도끼의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(24));
+		assertThat("도끼의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(12));
 		
 		player.setWeapon(new AxeWeapon(10, 1.5f));
-		assertThat("도끼의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(15));
+		assertThat("도끼의 데미지의 데미지 계산이 잘못 됐다. 스팩 확인", player.attack(), is(11));
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class PlayerTest {
 		 * chair 에 WeaponStrategy 를 구현하면 compile error 가 사라질 것이다. 
 		 */
 //		TODO 아래쪽 라인 player.setWeapon(chair); 이 컴파일 오류가 나지 않으며, assertThat 테스트 구문이 통과하도록 Chair.java 파일을 수정하라.
-//		player.setWeapon(chair);
+		player.setWeapon(chair);
 		
 		assertThat("기본 재료의 의자는 2의 데미지만 입힙니다.", player.attack(), is(2));
 		chair.setMaterial(Chair.Material.CRISTAL);
