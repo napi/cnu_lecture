@@ -29,6 +29,7 @@ public class GenericExampleTest {
 		int testAge = 30;
 		List personList = example.getPersonList(testAge);
 		
+		
 		for (int i = 0 ; i < personList.size() ; i++) {
 			Object obj = personList.get(i);
 			if (obj instanceof Person) {
