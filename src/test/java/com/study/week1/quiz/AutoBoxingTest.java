@@ -12,17 +12,17 @@ public class AutoBoxingTest {
 	public void test() throws Exception {
 		AutoBoxing autoBoxing = new AutoBoxing();
 		
-		assertThat("결과를 추측해보세요.", new String(autoBoxing.getAutoBoxing()), is(""));
+		assertThat("결과를 추측해보세요.", new String(autoBoxing.getAutoBoxing()), is("0Ab"));
 	}
 	
 	@Test
 	public void testAutoBoxing() {
 		Integer integer = 10;	// auto boxing
 		
-		assertThat(integer, is(10));	// unboxing
+		assertThat(integer, is(10));	// unboxing을 자동적으로 해줌.
 		assertThat(integer, is(new Integer(10)));
 		
 		assertThat(integer == 10, is(true));	
-		assertThat("Wrapper 끼리의 == 비교는... 안된다.", integer == new Integer(10), is(true));
+		assertThat("Wrapper 끼리의 == 비교는... 안된다.", integer.compareTo(new Integer(10))==0, is(true));
 	}
 }
