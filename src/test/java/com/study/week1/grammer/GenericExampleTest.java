@@ -20,6 +20,12 @@ public class GenericExampleTest {
 		for (int i = 0 ; i < personList.size() ; i++) {
 			assertThat(personList.get(i).getAge(), is(21));
 		}
+		
+		/*
+		 * for-each ^^
+		 * for(Person person : personList){
+		 * assertThat(person.getAge(), is(21));
+		 */
 	}
 	
 	@Test
