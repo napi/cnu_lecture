@@ -18,7 +18,8 @@ public class EqualQuizTest {
 		Integer n1 = new Integer(100);
 		Integer n2 = new Integer(100);		
 		// matcher 'is(true)' 를 유지한 체로 테스트 코드 수정.
-		assertThat("래퍼러의 == 비교", n1 == n2, is(true));		
+		assertThat("래퍼러의 == 비교", n1 == n2, is(false));
+		// n1과 n2의 주소가 다르다.
 	}
 	
 	@Test
@@ -42,7 +43,8 @@ public class EqualQuizTest {
 		String s2 = "Hello";
 		
 		assertThat("String equals", s1.equals(s2), is(true));
-		assertThat("String 은 객체인데 s1 == s2가 true 라니!?", s1 == s2, is(false));
+		assertThat("String 은 객체인데 s1 == s2가 true 라니!?", s1 == s2, is(true));
+		//스트링은 바뀌지 않기 때문에 같은 내용을 가지는 객체를 새로 만들지 않고 같은 객체를 가리키게 한다.
 	}
 	
 	@Test
@@ -63,7 +65,7 @@ public class EqualQuizTest {
 		String s4 = s2 + s3;
 		
 		assertThat("Hello == 'He' + 'llo' => false", s1.equals(s4), is(true));
-		assertThat("Hello == 'He' + 'llo' => false", s1 == s4, is(true));
+		assertThat("Hello == 'He' + 'llo' => false", s1 == s4, is(false));
 	}
 	
 	@Test
@@ -71,6 +73,6 @@ public class EqualQuizTest {
 		String s1 = new String("Hello");
 		String s2 = new String("Hello");
 		
-		assertThat(s1 == s2, is(true));
+		assertThat(s1 == s2, is(false));
 	}
 }

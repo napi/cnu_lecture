@@ -29,7 +29,7 @@ public class AccessParentTest {
 	 */
 	@Test
 	public void another() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("Another : AccessParent_Default"));
 	}
 	
 	@Test

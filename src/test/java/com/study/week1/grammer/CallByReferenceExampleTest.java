@@ -31,16 +31,17 @@ public class CallByReferenceExampleTest {
 		assertThat(robinFromClient1.getMmr(), is(0L));
 		
 		
+		// Client 3
+		Person robinFromClient3 = example.getPerson("robin");
+		assertThat(robinFromClient3.getAge(), is(30));
+		assertThat(robinFromClient3.getMmr(), is(0L));
+		
+		
 		// Client 2 (Admin)
 		Person robinFromAdmin = example.getPerson("robin");
 		robinFromAdmin.setMmr(1750L);
 		assertThat(robinFromAdmin.getAge(), is(30));
 		assertThat(robinFromAdmin.getMmr(), is(1750L));
 
-		
-		// Client 3
-		Person robinFromClient3 = example.getPerson("robin");
-		assertThat(robinFromClient3.getAge(), is(30));
-		assertThat(robinFromClient3.getMmr(), is(0L));
 	}
 }
