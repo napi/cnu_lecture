@@ -30,5 +30,8 @@ public class Player {
 		log.info("[{}] 가 공격하여 {}의 데미지를 가합니다.", name, this.weaponStrategy.damage());	
 		return this.weaponStrategy.damage();
 	}
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/week1
 }
