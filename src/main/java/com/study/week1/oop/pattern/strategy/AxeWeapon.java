@@ -6,10 +6,10 @@ public class AxeWeapon implements WeaponStrategy {
 	
 	public AxeWeapon(int damage, float weight) {
 		this.damage = damage;
-		this.weight = (int)weight;
+		this.weight = weight;
 	}
 
 	public int damage() {
-		return (int)(damage + weight);
+		return (int)(damage * weight);
 	}
 }

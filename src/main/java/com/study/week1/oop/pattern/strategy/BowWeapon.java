@@ -10,6 +10,6 @@ public class BowWeapon implements WeaponStrategy {
 	}
 
 	public int damage() {
-		return damage;
+		return damage + level;
 	}
 }
