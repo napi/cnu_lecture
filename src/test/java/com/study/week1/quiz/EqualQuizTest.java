@@ -28,6 +28,7 @@ public class EqualQuizTest {
 		q1.i = q2.i = 100;
 
 		// TODO 설명 듣고, 테스트가 동작하도록 EqualQuiz.java 파일을 수정.
+		//equals override
 		assertThat("객체 비교", q1.equals(q2), is(true));
 		
 		
