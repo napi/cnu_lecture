@@ -72,6 +72,7 @@ public class AccessParentTest {
 		 * */
 		
 		Object obj = (Object)another;
+		
 		AccessParent parent = (AccessParent)obj;
 		
 		fail("Expect exception");  // <-- 이 라인은 절대 삭제 하지 말것!!
