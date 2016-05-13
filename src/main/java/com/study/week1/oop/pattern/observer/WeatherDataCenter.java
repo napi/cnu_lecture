@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class WeatherData implements Subject{
+public class WeatherDataCenter implements Subject{
     private List<Observer> observerList;
     private float temperature;
     private float humidity;
     private float pressure;
  
-    public WeatherData() {
+    public WeatherDataCenter() {
         this.observerList = new ArrayList<Observer>();
     }
  

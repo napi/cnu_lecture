@@ -9,10 +9,10 @@ import org.junit.Test;
 
 import com.study.week1.oop.pattern.observer.Newspaper.NewsType;
 
-public class WeatherDataTest {
+public class WeatherDataCenterTest {
 	@Test
 	public void testObserver() throws Exception {
-		WeatherData weatherData = new WeatherData();
+		WeatherDataCenter weatherData = new WeatherDataCenter();
 		
 		RadioObserver radioObserver = new RadioObserver();
 		TVObserver tvObserver = new TVObserver();
@@ -49,7 +49,7 @@ public class WeatherDataTest {
 		
 		
 		// 기상센터에서 자동으로 해주는 영역
-		WeatherData weatherData = new WeatherData();
+		WeatherDataCenter weatherData = new WeatherDataCenter();
 		weatherData.setMeasurements(25f, 0.3f, 1.2f);
 		// 기상센터에서 자동으로 해주는 // 영역
 		
