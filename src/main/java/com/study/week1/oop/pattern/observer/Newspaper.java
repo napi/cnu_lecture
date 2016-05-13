@@ -3,7 +3,9 @@ package com.study.week1.oop.pattern.observer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Newspaper {
+import nz.net.ultraq.thymeleaf.decorators.Decorator;
+
+public class Newspaper{
 	private Map<NewsType, String> newsMap;
 	
 	public Newspaper() {
