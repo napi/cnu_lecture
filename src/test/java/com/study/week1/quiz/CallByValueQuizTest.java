@@ -15,18 +15,17 @@ public class CallByValueQuizTest {
 		CallByValueQuiz quiz = new CallByValueQuiz();
 
 		int i = 3;
-		Integer integer = new Integer(7);
+		Integer integer = new Integer(9);
 		String s = "HELLO";
 		Person p = new Person(30, "robin");
-		
-		quiz.convert(i);
-		quiz.convert(integer);
-		quiz.convert(s);
-		quiz.convert(p);
+		i = quiz.convert(i);
+		integer = quiz.convert(integer);
+		s = quiz.convert(s);
+		p = quiz.convert(p);
 		
 		assertThat(i, is(0));
 		assertThat(integer, is(9));
-		assertThat(s, is(""));
-		assertThat(p.getAge(), is(0));
+		assertThat(s, is("HEIIO"));
+		assertThat(p.getAge(), is(30));
 	}
 }

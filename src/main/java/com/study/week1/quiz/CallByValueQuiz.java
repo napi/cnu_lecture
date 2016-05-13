@@ -3,21 +3,24 @@ package com.study.week1.quiz;
 import com.study.week1.grammer.Person;
 
 public class CallByValueQuiz {
-	public void convert(int i) {
-		i += 10;
+	public int convert(int i) {
+		i -= 3;
+		return i;
 	}
 
-	public void convert(String s) {
-		s.replace("L", "l");
+	public String convert(String s) {
+		s = s.replace("L", "l");
+		return s;
 	}
 	
-	public void convert(Integer i) {
-		i.valueOf(100);
+	public Integer convert(Integer i) {
+		return Integer.valueOf(i);
 	}
 
-	public void convert(Person p) {
-		p.setAge(19);
+	public Person convert(Person p) {
+		p.setAge(30);
 		
-		p = new Person(50, "albert");
+		//p = new Person(50, "albert");
+		return p;
 	}
 }

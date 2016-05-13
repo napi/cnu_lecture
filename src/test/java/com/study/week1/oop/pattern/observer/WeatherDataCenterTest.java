@@ -51,9 +51,10 @@ public class WeatherDataCenterTest {
 		// 기상센터에서 자동으로 해주는 영역
 		WeatherDataCenter weatherData = new WeatherDataCenter();
 		weatherData.setMeasurements(25f, 0.3f, 1.2f);
+		weatherData.registerObserver(newspaper);
 		// 기상센터에서 자동으로 해주는 // 영역
+		weatherData.notifyObservers();
 		
-		
-		assertThat(newspaper.getNews(NewsType.WEATHER), is("온도:25, 습도:30%, 기압:1.2"));
+		assertThat(newspaper.getNews(NewsType.WEATHER), is("현재 온도는 25.000000 이며, 습도는 0.300000, 기압은 1.200000 입니다."));
 	}
 }

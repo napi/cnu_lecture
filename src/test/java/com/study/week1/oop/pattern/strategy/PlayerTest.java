@@ -33,7 +33,7 @@ public class PlayerTest {
 	public void testSecretWeapon() throws Exception {
 		/**
 		 * TODO
-		 * 
+		 * 테스트코드 변경하지말고 성공으로 week1에 pull request.houl
 		 * 전설의 무기를 만드세요.
 		 * 전설의 무기는 바로 크리스탈 의자입니다!
 		 * 평소에는 데미지가 1로 고정이지만, 크리스탈 의자는 100의 고정데미지를 입힙니다.
