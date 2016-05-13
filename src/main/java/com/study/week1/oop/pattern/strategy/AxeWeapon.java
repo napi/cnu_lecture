@@ -11,6 +11,10 @@ public class AxeWeapon implements WeaponStrategy {
 
 	@Override
 	public int damage() {
+<<<<<<< HEAD
+		return (int)(damage * weight);
+=======
 		return (int)(damage + weight);
+>>>>>>> upstream/week1
 	}
 }
