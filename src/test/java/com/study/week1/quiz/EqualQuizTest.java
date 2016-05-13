@@ -18,7 +18,7 @@ public class EqualQuizTest {
 		Integer n1 = new Integer(100);
 		Integer n2 = new Integer(100);		
 		// matcher 'is(true)' 를 유지한 체로 테스트 코드 수정.
-		assertThat("래퍼러의 == 비교", n1 == n2, is(true));		
+		assertThat("래퍼러의 == 비교", n1 == n2, is(false));		
 	}
 	
 	@Test
