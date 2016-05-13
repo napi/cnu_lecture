@@ -13,8 +13,8 @@ public class GenericExample {
 	}
 	
 	// Method Overload!!!
-	public List getPersonList(int age) {
-		List personList = new ArrayList();
+	public List<Person> getPersonList(int age) {
+		List<Person> personList = new ArrayList<Person>();
 		personList.add(new Person(age, "robin"));
 
 		return personList;
