@@ -10,6 +10,6 @@ public class AxeWeapon implements WeaponStrategy {
 	}
 
 	public int damage() {
-		return (int)(damage * weight);
+		return (int)(damage + weight);
 	}
 }
