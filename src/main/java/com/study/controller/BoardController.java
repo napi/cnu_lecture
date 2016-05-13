@@ -89,7 +89,7 @@ public class BoardController {
 	public ResponseEntity<Map<String, Object>> resourceNotFoundException(ResourceNotFoundException exception, Locale locale) {
 		System.out.println(exception.getError());
 		
-		Map<String, Object> body = new LinkedHashMap<>();
+		Map<String, Object> body = new LinkedHashMap<String, Object>();
 		body.put("timestamp", new Date());
 		body.put("status", exception.getStatus());
 		body.put("error", exception.getError());
