@@ -25,5 +25,5 @@ public class Player {
 		log.info("[{}] 가 공격을 시작합니다");
 		return this.weaponStrategy.damage();
 	}
-
+	
 }

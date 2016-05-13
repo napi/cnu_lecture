@@ -9,7 +9,6 @@ public class BowWeapon implements WeaponStrategy {
 		this.level = level;
 	}
 
-	@Override
 	public int damage() {
 		return damage + level;
 	}

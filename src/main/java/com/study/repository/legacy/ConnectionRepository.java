@@ -40,7 +40,7 @@ public class ConnectionRepository {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 
-		List<Board> boardList = new ArrayList<>();
+		List<Board> boardList = new ArrayList<Board>();
 		
 		while(rs.next()) {
 			Board board = new Board();

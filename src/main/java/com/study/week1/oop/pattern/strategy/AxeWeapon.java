@@ -6,10 +6,9 @@ public class AxeWeapon implements WeaponStrategy {
 	
 	public AxeWeapon(int damage, float weight) {
 		this.damage = damage;
-		this.weight = weight;
+		this.weight = (int)weight;
 	}
 
-	@Override
 	public int damage() {
 		return (int)(damage * weight);
 	}
