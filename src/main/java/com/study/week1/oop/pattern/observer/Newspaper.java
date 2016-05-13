@@ -3,7 +3,9 @@ package com.study.week1.oop.pattern.observer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Newspaper {
+import com.study.week1.oop.pattern.observer.Newspaper.NewsType;
+
+public class Newspaper implements Observer{
 	private Map<NewsType, String> newsMap;
 	
 	public Newspaper() {
@@ -28,5 +30,12 @@ public class Newspaper {
 		WEATHER,
 		SPORTS,
 		ECONOMY
+	}
+
+	@Override
+	public void update(float temperature, float humidity, float pressure) {
+		String weatherNews = String.format("현재 온도는 %f 이며, 습도는 %f, 기압은 %f 입니다.",  temperature, humidity, pressure);
+		this.setNews(NewsType.WEATHER, weatherNews);
+		
 	}
 }
