@@ -11,6 +11,10 @@ public class BowWeapon implements WeaponStrategy {
 
 	@Override
 	public int damage() {
+<<<<<<< HEAD
+		return damage + level;
+=======
 		return damage;
+>>>>>>> upstream/week1
 	}
 }
