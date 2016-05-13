@@ -12,6 +12,10 @@ public class Chair {
 		this.material = material;
 	}
 	
+	public void setMaterial(Material material) {
+		this.material = material;
+	}
+	
 	public void sit(Player player) {
 		log.info("[{}] 님이 의자에 앉아 휴식을 취합니다", player.getName());
 	}
