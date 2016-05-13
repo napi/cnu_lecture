@@ -30,6 +30,7 @@ public class Chair implements WeaponStrategy {
     @Override
     public int damage() {
         // TODO Auto-generated method stub
+        // 의자는 Cristal 의자인 경우만 데미지가 100이고 나머지의 경우는 2이다.
         if(material == Material.CRISTAL){
             return 100;
         }else{
