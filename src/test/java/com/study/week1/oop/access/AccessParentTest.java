@@ -57,10 +57,10 @@ public class AccessParentTest {
 		
 		assertThat("정상", i, is(123));
 
-		float f2 = f;
+		float f2 = i;
 
 		// TODO Test코드를 수정해서 아래 fail을 해결
-		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
+		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.0f));		
 	}
 	
 	@Test(expected = ClassCastException.class)
