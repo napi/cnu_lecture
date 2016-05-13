@@ -1,5 +1,9 @@
 server:
+<<<<<<< HEAD
+  port: 8000
+=======
   port: 8080
+>>>>>>> upstream/week1
 
 #sevice :
 
