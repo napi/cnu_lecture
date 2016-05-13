@@ -28,12 +28,14 @@ public class AccessParentTest {
 	 */
 	@Test
 	public void another() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
+	    // "Another : " 를 추가하여 문제 해결
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", another.getAccessParentNameByDefault(), is("Another : AccessParent_Default"));
 	}
 	
 	@Test
 	public void testAccessNameByProtected() {
-		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+	    // "Child : "를 추가하여 문제 해결
+		assertThat("Test코드를 수정해서 아래 코드를 해결할 것", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
 	}
 
 	@Test
@@ -45,8 +47,9 @@ public class AccessParentTest {
 //		accessChildrenCasted.onlyChildren();	compile error
 		
 		// TODO Test코드를 수정해서 아래 fail을 해결
+		// "Child : "를 추가하여 문제 해결
 		assertThat("parent 로 캐스팅 됐지만, 객체는 여전히 children의 속성을 갖고 있다.", 
-				accessParentCasted.getNameByProtected(), is("AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
+				accessParentCasted.getNameByProtected(), is("Child : AccessParent_Protected")); // 나 부모로 캐스팅 된거 아닌가??
 	}
 	
 	@Test
@@ -57,12 +60,14 @@ public class AccessParentTest {
 		assertThat("정상", i, is(123));
 
 		float f2 = i;
-
+		
 		// TODO Test코드를 수정해서 아래 fail을 해결
-		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.4f));		
+		// 뒤의 소수점 데이터가 사라져 123->123.0f 로 변경하여 문제 해결
+		assertThat("데이터가 유실됐다!! primary type은 캐스팅때 조심해야 함.", f2, is(123.0f));		
 	}
 	
-	@Test
+	// expected를 이용하여 debug에서 나오는 exception class 추가하여 문제 해결
+	@Test(expected=ClassCastException.class)
 	public void testException() throws Exception {
 		/* Compile error  
 		 * 

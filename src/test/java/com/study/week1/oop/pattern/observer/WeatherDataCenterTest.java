@@ -16,9 +16,11 @@ public class WeatherDataCenterTest {
 		
 		RadioObserver radioObserver = new RadioObserver();
 		TVObserver tvObserver = new TVObserver();
+		Newspaper newspaper = new Newspaper();
 
 		weatherData.registerObserver(radioObserver);
 		weatherData.registerObserver(tvObserver);
+		weatherData.registerObserver(newspaper);
 		
 		weatherData.setMeasurements(25f, 0.4f, 1.1f);
 		

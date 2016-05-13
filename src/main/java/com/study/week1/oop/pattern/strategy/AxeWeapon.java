@@ -11,6 +11,7 @@ public class AxeWeapon implements WeaponStrategy {
 
 	@Override
 	public int damage() {
-		return (int)(damage + weight);
+	    // 도끼의 데미지는 damage와 weight를 곱한 값이다.
+		return (int)(damage * weight);
 	}
 }

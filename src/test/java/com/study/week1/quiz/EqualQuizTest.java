@@ -42,7 +42,7 @@ public class EqualQuizTest {
 		String s2 = "Hello";
 		
 		assertThat("String equals", s1.equals(s2), is(true));
-		assertThat("String 은 객체인데 s1 == s2가 true 라니!?", s1 == s2, is(false));
+		assertThat("String 은 객체인데 s1 == s2가 true 라니!?", s1 == s2, is(true));
 	}
 	
 	@Test
