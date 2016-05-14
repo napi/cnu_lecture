@@ -71,6 +71,7 @@ public class PlayerTest {
 		 */
 //		TODO 아래쪽 라인 player.setWeapon(chair); 이 컴파일 오류가 나지 않으며, assertThat 테스트 구문이 통과하도록 Chair.java 파일을 수정하라.
 //		player.setWeapon(chair);
+		player.setWeapon(chair);
 		
 		assertThat("기본 재료의 의자는 2의 데미지만 입힙니다.", player.attack(), is(2));
 		chair.setMaterial(Chair.Material.CRISTAL);
