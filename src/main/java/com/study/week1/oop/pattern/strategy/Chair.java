@@ -27,16 +27,16 @@ public class Chair implements WeaponStrategy{
 		CRISTAL
 		
 		@Override
- +	public int damage() {
- +		if(this.material == Material.WOOD){
- +			return 2;
- +		}
- +		
- +		else if(this.material == Material.CRISTAL){
- +			return 100;
- +		}
- +		else{
- +			return 1;
- +		}
+ 	public int damage() {
+ 		if(this.material == Material.WOOD){
+ 			return 2;
+ 		}
+ 		
+ 		else if(this.material == Material.CRISTAL){
+ 			return 100;
+ 		}
+ 		else{
+ 			return 1;
+ 		}
 	}
 }
