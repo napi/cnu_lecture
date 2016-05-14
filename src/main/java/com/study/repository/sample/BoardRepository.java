@@ -1,8 +1,8 @@
-package com.study.repository;
+package com.study.repository.sample;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.study.domain.Board;
+import com.study.domain.sample.Board;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 	Board findByName(String name);

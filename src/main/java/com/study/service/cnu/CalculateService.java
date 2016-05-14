@@ -1,4 +1,4 @@
-package com.study.service;
+package com.study.service.cnu;
 
 import java.rmi.UnexpectedException;
 

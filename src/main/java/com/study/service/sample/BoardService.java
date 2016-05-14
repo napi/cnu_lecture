@@ -1,4 +1,4 @@
-package com.study.service;
+package com.study.service.sample;
 
 import java.util.List;
 import java.util.Objects;
@@ -8,12 +8,12 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.study.domain.Board;
-import com.study.domain.Post;
-import com.study.domain.PostForm;
+import com.study.domain.sample.Board;
+import com.study.domain.sample.Post;
+import com.study.domain.sample.PostForm;
 import com.study.exception.BoardNotFoundException;
-import com.study.repository.BoardRepository;
-import com.study.repository.PostRepository;
+import com.study.repository.sample.BoardRepository;
+import com.study.repository.sample.PostRepository;
 
 @Service
 @Transactional

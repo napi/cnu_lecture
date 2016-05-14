@@ -1,4 +1,4 @@
-package com.study.controller;
+package com.study.controller.sample;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.domain.Board;
-import com.study.domain.Popo;
-import com.study.domain.Post;
-import com.study.domain.PostForm;
+import com.study.domain.sample.Board;
+import com.study.domain.sample.Popo;
+import com.study.domain.sample.Post;
+import com.study.domain.sample.PostForm;
 import com.study.exception.ResourceNotFoundException;
 import com.study.repository.legacy.ConnectionRepository;
 import com.study.repository.mybatis.CnuRepository;
-import com.study.service.BoardService;
+import com.study.service.sample.BoardService;
 
 @RestController
 @RequestMapping("/sample2")

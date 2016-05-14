@@ -2,9 +2,8 @@ package com.study.service;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
 
+import com.study.service.cnu.CalculateService;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
