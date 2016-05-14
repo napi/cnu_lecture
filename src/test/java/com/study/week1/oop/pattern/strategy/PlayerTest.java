@@ -15,50 +15,50 @@ public class PlayerTest {
 	}
 
 	/**
-	 * ì¹¼ì˜ ê³µê²©ë ¥ì€ ë¬´ê¸°ë°ë¯¸ì§€ * 2 ì´ë‹¤. 
+	 * Ä®ÀÇ °ø°İ·ÂÀº ¹«±âµ¥¹ÌÁö * 2 ÀÌ´Ù. 
 	 * @throws Exception
 	 */
 	@Test
 	public void testSward() throws Exception {
 		player.setWeapon(new SwardWeapon(10));
 		
-		assertThat("ì¹¼ì€ ë°ë¯¸ì§€ê°€ * 2", player.attack(), is(20));
+		assertThat("Ä®Àº µ¥¹ÌÁö°¡ * 2", player.attack(), is(20));
 	}
 	
 	/**
-	 * í™œì˜ ê³µê²©ë ¥ì€ ë¬´ê¸°ë°ë¯¸ì§€ + Level ì´ë‹¤. 
+	 * È°ÀÇ °ø°İ·ÂÀº ¹«±âµ¥¹ÌÁö + Level ÀÌ´Ù. 
 	 * @throws Exception
 	 */
 	@Test
 	public void testBow() throws Exception {
-		// TODO BowWeapon ì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ Test ì½”ë“œë¥¼ ê³ ì¹˜ì‹œì˜¤.
+		// TODO BowWeapon ÄÚµå¸¦ ¼öÁ¤ÇØ¼­ Test ÄÚµå¸¦ °íÄ¡½Ã¿À.
 		player.setWeapon(new BowWeapon(10, 4));
-		assertThat("í™œì˜ ë°ë¯¸ì§€ì˜ ë°ë¯¸ì§€ ê³„ì‚°ì´ ì˜ëª» ëë‹¤. ìŠ¤íŒ© í™•ì¸", player.attack(), is(14));
+		assertThat("È°ÀÇ µ¥¹ÌÁöÀÇ µ¥¹ÌÁö °è»êÀÌ Àß¸ø µÆ´Ù. ½ºÆÑ È®ÀÎ", player.attack(), is(14));
 		
 		player.setWeapon(new BowWeapon(10, 6));
-		assertThat("í™œì˜ ë°ë¯¸ì§€ì˜ ë°ë¯¸ì§€ ê³„ì‚°ì´ ì˜ëª» ëë‹¤. ìŠ¤íŒ© í™•ì¸", player.attack(), is(16));
+		assertThat("È°ÀÇ µ¥¹ÌÁöÀÇ µ¥¹ÌÁö °è»êÀÌ Àß¸ø µÆ´Ù. ½ºÆÑ È®ÀÎ", player.attack(), is(16));
 	}
 
 	/**
-	 * ë„ë¼ì˜ ê³µê²©ë ¥ì€ ë¬´ê¸°ë°ë¯¸ì§€ * Level ì´ë‹¤. 
+	 * µµ³¢ÀÇ °ø°İ·ÂÀº ¹«±âµ¥¹ÌÁö * Level ÀÌ´Ù. 
 	 * @throws Exception
 	 */
 	@Test
 	public void testAxe() throws Exception {
-		// TODO AxeWeapon ì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ Test ì½”ë“œë¥¼ ê³ ì¹˜ì‹œì˜¤.
+		// TODO AxeWeapon ÄÚµå¸¦ ¼öÁ¤ÇØ¼­ Test ÄÚµå¸¦ °íÄ¡½Ã¿À.
 
 		player.setWeapon(new AxeWeapon(10, 2.4f));
-		assertThat("ë„ë¼ì˜ ë°ë¯¸ì§€ì˜ ë°ë¯¸ì§€ ê³„ì‚°ì´ ì˜ëª» ëë‹¤. ìŠ¤íŒ© í™•ì¸", player.attack(), is(24));
+		assertThat("µµ³¢ÀÇ µ¥¹ÌÁöÀÇ µ¥¹ÌÁö °è»êÀÌ Àß¸ø µÆ´Ù. ½ºÆÑ È®ÀÎ", player.attack(), is(24));
 		
 		player.setWeapon(new AxeWeapon(10, 1.5f));
-		assertThat("ë„ë¼ì˜ ë°ë¯¸ì§€ì˜ ë°ë¯¸ì§€ ê³„ì‚°ì´ ì˜ëª» ëë‹¤. ìŠ¤íŒ© í™•ì¸", player.attack(), is(15));
+		assertThat("µµ³¢ÀÇ µ¥¹ÌÁöÀÇ µ¥¹ÌÁö °è»êÀÌ Àß¸ø µÆ´Ù. ½ºÆÑ È®ÀÎ", player.attack(), is(15));
 	}
 
 	/**
-	 * ì „ì„¤ì˜ ë¬´ê¸°ëŠ” í¬ë¦¬ìŠ¤íƒˆ ì˜ì.
+	 * Àü¼³ÀÇ ¹«±â´Â Å©¸®½ºÅ» ÀÇÀÚ.
 	 * 
-	 * ë‹¤ë¥¸ ì˜ìëŠ” ëª¨ë‘ ë°ë¯¸ì§€ê°€ 2ë¡œ ê³ ì •ì´ë‹¤.
-	 * ì „ì„¤ì˜ ì˜ì(í¬ë¦¬ìŠ¤íƒˆ ì˜ì)ëŠ” 100ì˜ ê³ ì • ë°ë¯¸ì§€ë¥¼ ì…íŒë‹¤.
+	 * ´Ù¸¥ ÀÇÀÚ´Â ¸ğµÎ µ¥¹ÌÁö°¡ 2·Î °íÁ¤ÀÌ´Ù.
+	 * Àü¼³ÀÇ ÀÇÀÚ(Å©¸®½ºÅ» ÀÇÀÚ)´Â 100ÀÇ °íÁ¤ µ¥¹ÌÁö¸¦ ÀÔÈù´Ù.
 	 * @throws Exception
 	 */
 	@Test
@@ -66,14 +66,14 @@ public class PlayerTest {
 		Chair chair = new Chair(Chair.Material.WOOD);
 	
 		/**
-		 * ì•„ë˜ setWeapon ì— chair ì„ ë„£ìœ¼ë©´ compile errorê°€ ë‚œë‹¤.
-		 * chair ì— WeaponStrategy ë¥¼ êµ¬í˜„í•˜ë©´ compile error ê°€ ì‚¬ë¼ì§ˆ ê²ƒì´ë‹¤. 
+		 * ¾Æ·¡ setWeapon ¿¡ chair À» ³ÖÀ¸¸é compile error°¡ ³­´Ù.
+		 * chair ¿¡ WeaponStrategy ¸¦ ±¸ÇöÇÏ¸é compile error °¡ »ç¶óÁú °ÍÀÌ´Ù. 
 		 */
-//		TODO ì•„ë˜ìª½ ë¼ì¸ player.setWeapon(chair); ì´ ì»´íŒŒì¼ ì˜¤ë¥˜ê°€ ë‚˜ì§€ ì•Šìœ¼ë©°, assertThat í…ŒìŠ¤íŠ¸ êµ¬ë¬¸ì´ í†µê³¼í•˜ë„ë¡ Chair.java íŒŒì¼ì„ ìˆ˜ì •í•˜ë¼.
-//		player.setWeapon(chair);
+//		TODO ¾Æ·¡ÂÊ ¶óÀÎ player.setWeapon(chair); ÀÌ ÄÄÆÄÀÏ ¿À·ù°¡ ³ªÁö ¾ÊÀ¸¸ç, assertThat Å×½ºÆ® ±¸¹®ÀÌ Åë°úÇÏµµ·Ï Chair.java ÆÄÀÏÀ» ¼öÁ¤ÇÏ¶ó.
+		player.setWeapon(chair);
 		
-		assertThat("ê¸°ë³¸ ì¬ë£Œì˜ ì˜ìëŠ” 2ì˜ ë°ë¯¸ì§€ë§Œ ì…í™ë‹ˆë‹¤.", player.attack(), is(2));
+		assertThat("±âº» Àç·áÀÇ ÀÇÀÚ´Â 2ÀÇ µ¥¹ÌÁö¸¸ ÀÔÈü´Ï´Ù.", player.attack(), is(2));
 		chair.setMaterial(Chair.Material.CRISTAL);
-		assertThat("í¬ë¦¬ìŠ¤íƒˆ ì˜ìëŠ” 100ì˜ ë°ë¯¸ì§€ë¥¼ ì…í™ë‹ˆë‹¤.", player.attack(), is(100));
+		assertThat("Å©¸®½ºÅ» ÀÇÀÚ´Â 100ÀÇ µ¥¹ÌÁö¸¦ ÀÔÈü´Ï´Ù.", player.attack(), is(100));
 	}
 }
