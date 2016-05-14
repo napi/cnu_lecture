@@ -23,8 +23,8 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th scope="col" class="first">제목</th>
-					<th scope="col"></th>
+					<th scope="col" class="first"></th>
+					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
 				</tr>
