@@ -20,7 +20,7 @@ public class Chair implements WeaponStrategy{
 		log.info("[{}] 님이 의자에 앉아 휴식을 취합니다", player.getName());
 	}
 
-	public enum Material {
+	enum Material {
 		WOOD,
 		STONE,
 		IRON,
