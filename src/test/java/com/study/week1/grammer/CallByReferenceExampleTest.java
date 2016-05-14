@@ -41,6 +41,6 @@ public class CallByReferenceExampleTest {
 		// Client 3
 		Person robinFromClient3 = example.getPerson("robin");
 		assertThat(robinFromClient3.getAge(), is(30));
-		assertThat(robinFromClient3.getMmr(), is(0L));
+		assertThat(robinFromClient3.getMmr(), is(1750L));
 	}
 }
