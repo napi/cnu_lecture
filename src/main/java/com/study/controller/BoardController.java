@@ -27,7 +27,7 @@ import com.study.repository.mybatis.CnuRepository;
 import com.study.service.BoardService;
 
 @RestController
-@RequestMapping("/board")
+@RequestMapping("/sample2")
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
