@@ -23,46 +23,48 @@ public class AccessParentTest {
 	
 	
 	/**
-	 * Another í´ë˜ìŠ¤ëŠ” fieldë¡œ AccessParent í´ë˜ìŠ¤ë¥¼ ê°–ê³  ìˆë‹¤.
-	 * Another ê³¼ AccessParent ëŠ” ê°™ì€ íŒ¨í‚¤ì§€ì— ì¡´ì¬í•¨ìœ¼ë¡œ, default ì ‘ê·¼ì ë©”ì„œë“œë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+	 * Another Å¬·¡½º´Â field·Î AccessParent Å¬·¡½º¸¦ °®°í ÀÖ´Ù.
+	 * Another °ú AccessParent ´Â °°Àº ÆĞÅ°Áö¿¡ Á¸ÀçÇÔÀ¸·Î, default Á¢±ÙÀÚ ¸Ş¼­µå¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
 	 */
 	@Test
 	public void another() {
-		assertThat("Testì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ ì•„ë˜ ì½”ë“œë¥¼ í•´ê²°í•  ê²ƒ", another.getAccessParentNameByDefault(), is("AccessParent_Default"));
+		assertThat("TestÄÚµå¸¦ ¼öÁ¤ÇØ¼­ ¾Æ·¡ ÄÚµå¸¦ ÇØ°áÇÒ °Í", another.getAccessParentNameByDefault(), is("Another : AccessParent_Default"));
+
 	}
 	
 	@Test
 	public void testAccessNameByProtected() {
-		assertThat("Testì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ ì•„ë˜ ì½”ë“œë¥¼ í•´ê²°í•  ê²ƒ", accessChildren.getNameByProtected(), is("AccessParent_Protected"));
+		assertThat("TestÄÚµå¸¦ ¼öÁ¤ÇØ¼­ ¾Æ·¡ ÄÚµå¸¦ ÇØ°áÇÒ °Í", accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
+
 	}
 
 	@Test
-	public void ìƒì†ê³¼_í˜•ë³€í™˜() throws Exception {
+	public void »ó¼Ó°ú_Çüº¯È¯() throws Exception {
 		assertThat(accessChildren.onlyChildren(), is("onlyChildren"));		
 		assertThat(accessChildren.getNameByProtected(), is("Child : AccessParent_Protected"));
 		
 		AccessParent accessParentCasted = (AccessParent)accessChildren;		
 //		accessChildrenCasted.onlyChildren();	compile error
 		
-		// TODO Testì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ ì•„ë˜ failì„ í•´ê²°
-		assertThat("parent ë¡œ ìºìŠ¤íŒ… ëì§€ë§Œ, ê°ì²´ëŠ” ì—¬ì „íˆ childrenì˜ ì†ì„±ì„ ê°–ê³  ìˆë‹¤.", 
-				accessParentCasted.getNameByProtected(), is("AccessParent_Protected")); // ë‚˜ ë¶€ëª¨ë¡œ ìºìŠ¤íŒ… ëœê±° ì•„ë‹Œê°€??
+		// TODO TestÄÚµå¸¦ ¼öÁ¤ÇØ¼­ ¾Æ·¡ failÀ» ÇØ°á
+		assertThat("parent ·Î Ä³½ºÆÃ µÆÁö¸¸, °´Ã¼´Â ¿©ÀüÈ÷ childrenÀÇ ¼Ó¼ºÀ» °®°í ÀÖ´Ù.", 
+		accessParentCasted.getNameByProtected(), is("Child : AccessParent_Protected")); // ³ª ºÎ¸ğ·Î Ä³½ºÆÃ µÈ°Å ¾Æ´Ñ°¡??
 	}
 	
 	@Test
-	public void ë©í¼ëŸ¬_í˜•ë³€í™˜() throws Exception {
+	public void ·¦ÆÛ·¯_Çüº¯È¯() throws Exception {
 		float f = 123.4f;
 		int i = (int) f;
 		
-		assertThat("ì •ìƒ", i, is(123));
+		assertThat("Á¤»ó", i, is(123));
 
 		float f2 = i;
 
-		// TODO Testì½”ë“œë¥¼ ìˆ˜ì •í•´ì„œ ì•„ë˜ failì„ í•´ê²°
-		assertThat("ë°ì´í„°ê°€ ìœ ì‹¤ëë‹¤!! primary typeì€ ìºìŠ¤íŒ…ë•Œ ì¡°ì‹¬í•´ì•¼ í•¨.", f2, is(123.4f));		
+		// TODO TestÄÚµå¸¦ ¼öÁ¤ÇØ¼­ ¾Æ·¡ failÀ» ÇØ°á
+		assertThat("µ¥ÀÌÅÍ°¡ À¯½ÇµÆ´Ù!! primary typeÀº Ä³½ºÆÃ¶§ Á¶½ÉÇØ¾ß ÇÔ.", f, is(123.4f));		
 	}
 	
-	@Test
+	@Test(expected = ClassCastException.class)
 	public void testException() throws Exception {
 		/* Compile error  
 		 * 
@@ -74,8 +76,8 @@ public class AccessParentTest {
 		Object obj = (Object)another;
 		AccessParent parent = (AccessParent)obj;
 		
-		fail("Expect exception");  // <-- ì´ ë¼ì¸ì€ ì ˆëŒ€ ì‚­ì œ í•˜ì§€ ë§ê²ƒ!!
+		fail("Expect exception");  // <-- ÀÌ ¶óÀÎÀº Àı´ë »èÁ¦ ÇÏÁö ¸»°Í!!
 		
-		// TODO @Test annotationì˜ expected ë¥¼ ì´ìš©í•´ì„œ ì´ í…ŒìŠ¤íŠ¸ë¥¼ ì™„ì„±í•  ê²ƒ 
+		// TODO @Test annotationÀÇ expected ¸¦ ÀÌ¿ëÇØ¼­ ÀÌ Å×½ºÆ®¸¦ ¿Ï¼ºÇÒ °Í 
 	}
 }
