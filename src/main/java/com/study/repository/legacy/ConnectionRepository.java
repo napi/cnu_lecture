@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
-import com.study.domain.sample.Board;
+import com.study.domain.jpa.JpaBoard;
 
 @Repository
 public class ConnectionRepository {
@@ -34,43 +34,43 @@ public class ConnectionRepository {
 		conn = DriverManager.getConnection(url, username, password);   
 	}
 
-	public List<Board> selectBoardList() throws SQLException {
+	public List<JpaBoard> selectBoardList() throws SQLException {
 		String sql = "SELECT id, name, create_at FROM board";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 
-		List<Board> boardList = new ArrayList<>();
+		List<JpaBoard> jpaBoardList = new ArrayList<>();
 		
 		while(rs.next()) {
-			Board board = new Board();
-			board.setId(rs.getLong("id"));
-			board.setName(rs.getString("name"));
-			board.setCreateAt(rs.getDate("create_at"));
+			JpaBoard jpaBoard = new JpaBoard();
+			jpaBoard.setId(rs.getLong("id"));
+			jpaBoard.setName(rs.getString("name"));
+			jpaBoard.setCreateAt(rs.getDate("create_at"));
 			
-			boardList.add(board);
+			jpaBoardList.add(jpaBoard);
 		}
 		
-		return boardList;
+		return jpaBoardList;
 	}
 
 	
-	public List<Board> selectBoard(String boardName) throws SQLException {
+	public List<JpaBoard> selectBoard(String boardName) throws SQLException {
 		String sql = "SELECT id, name, create_at FROM board WHERE name = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, boardName);
 		ResultSet rs = pstmt.executeQuery();
 
-		List<Board> boardList = new ArrayList<>();
+		List<JpaBoard> jpaBoardList = new ArrayList<>();
 		
 		while(rs.next()) {
-			Board board = new Board();
-			board.setId(rs.getLong("id"));
-			board.setName(rs.getString("name"));
-			board.setCreateAt(new Date(rs.getLong("create_at")));
+			JpaBoard jpaBoard = new JpaBoard();
+			jpaBoard.setId(rs.getLong("id"));
+			jpaBoard.setName(rs.getString("name"));
+			jpaBoard.setCreateAt(new Date(rs.getLong("create_at")));
 
-			boardList.add(board);
+			jpaBoardList.add(jpaBoard);
 		}
 		
-		return boardList;
+		return jpaBoardList;
 	}
 }

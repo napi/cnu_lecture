@@ -1,5 +1,5 @@
-insert into Board (name, create_at) values ('notice', now());
-insert into Board (name, create_at) values ('random', now());
+insert into jpa_board (name, create_at) values ('notice', now());
+insert into jpa_board (name, create_at) values ('random', now());
 
 CREATE TABLE cnu_board (
   post_id int(10) NOT NULL AUTO_INCREMENT,

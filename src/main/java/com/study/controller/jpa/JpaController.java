@@ -1,4 +1,4 @@
-package com.study.controller.sample;
+package com.study.controller.jpa;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -17,71 +17,71 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.study.domain.sample.Board;
-import com.study.domain.sample.Popo;
-import com.study.domain.sample.Post;
-import com.study.domain.sample.PostForm;
+import com.study.domain.jpa.JpaBoard;
+import com.study.domain.jpa.Popo;
+import com.study.domain.jpa.JpaPost;
+import com.study.domain.jpa.PostForm;
 import com.study.exception.ResourceNotFoundException;
 import com.study.repository.legacy.ConnectionRepository;
-import com.study.repository.mybatis.CnuRepository;
-import com.study.service.sample.BoardService;
+import com.study.repository.mybatis.BoardRepository;
+import com.study.service.jpa.JpaBoardService;
 
 @RestController
-@RequestMapping("/sample2")
-public class BoardController {
+@RequestMapping("/jpa")
+public class JpaController {
 	@Autowired
-	private BoardService boardService;
+	private JpaBoardService jpaBoardService;
 	
 	@Autowired
 	private MessageSource messageSource;
 //	private MessageSourceAccessor messageSource;
 	
 	@Autowired
-	private CnuRepository cnuRepository;
+	private BoardRepository boardRepository;
 	
 	@Autowired
 	private ConnectionRepository connectionRepository;
 	
 	@RequestMapping(value = "/{boardName}/info", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public ResponseEntity<Board> info(@PathVariable String boardName) {
-		return ResponseEntity.ok(boardService.findBoard(boardName));
+	public ResponseEntity<JpaBoard> info(@PathVariable String boardName) {
+		return ResponseEntity.ok(jpaBoardService.findBoard(boardName));
 	}
 
 	@RequestMapping(value = "/{boardName}", method = {RequestMethod.GET, RequestMethod.HEAD}) 
-	public ResponseEntity<Board> free(@PathVariable String boardName) {
+	public ResponseEntity<JpaBoard> free(@PathVariable String boardName) {
 		System.out.println(boardName);
-		return ResponseEntity.ok(boardService.findBoard(boardName));
+		return ResponseEntity.ok(jpaBoardService.findBoard(boardName));
 	}
 
 	@RequestMapping(value = "/{boardName}/list", method = {RequestMethod.GET, RequestMethod.HEAD})
-	public ResponseEntity<List<Post>> listPosts(@PathVariable String boardName) {
-		return ResponseEntity.ok(boardService.findPosts(boardName));
+	public ResponseEntity<List<JpaPost>> listPosts(@PathVariable String boardName) {
+		return ResponseEntity.ok(jpaBoardService.findPosts(boardName));
 	}
 	
 	@RequestMapping(value = "/{boardName}", method = {RequestMethod.POST})
-	public ResponseEntity<Post> createPost(@PathVariable String boardName, Popo popo) {
+	public ResponseEntity<JpaPost> createPost(@PathVariable String boardName, Popo popo) {
 		PostForm postForm = new PostForm(popo.getAuthor(), popo.getTitle(), popo.getContent());
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(boardService.writePost(boardName, postForm));
+		return ResponseEntity.status(HttpStatus.CREATED).body(jpaBoardService.writePost(boardName, postForm));
 	}
 
 	@RequestMapping(value = "/{boardName}/{postId}", method = {RequestMethod.PUT})
-	public ResponseEntity<Post> updatePost(@PathVariable String boardName, @PathVariable long postId, String author, String title, String content) {
-		return ResponseEntity.ok(boardService.editPost(postId, author, title, content));
+	public ResponseEntity<JpaPost> updatePost(@PathVariable String boardName, @PathVariable long postId, String author, String title, String content) {
+		return ResponseEntity.ok(jpaBoardService.editPost(postId, author, title, content));
 	}
 
 	@RequestMapping(value = "/{boardName}/{postId}", method = {RequestMethod.DELETE})
-	public ResponseEntity<Post> updatePost(@PathVariable String boardName, @PathVariable long postId) {
-		return ResponseEntity.ok(boardService.erasePost(postId));
+	public ResponseEntity<JpaPost> updatePost(@PathVariable String boardName, @PathVariable long postId) {
+		return ResponseEntity.ok(jpaBoardService.erasePost(postId));
 	}
 
 	@RequestMapping(value = "/listMybatis")
-	public ResponseEntity<List<Board>> listMybatis() {
-		return ResponseEntity.ok(cnuRepository.selectBoardList());
+	public ResponseEntity<List<JpaBoard>> listMybatis() {
+		return ResponseEntity.ok(boardRepository.selectJpaBoardList());
 	}
 	
 	@RequestMapping(value = "/listLegacy")
-	public ResponseEntity<List<Board>> listLegacy() throws SQLException {
+	public ResponseEntity<List<JpaBoard>> listLegacy() throws SQLException {
 		return ResponseEntity.ok(connectionRepository.selectBoardList());
 	}
 	
