@@ -32,10 +32,10 @@ public class Chair implements WeaponStrategy{
 	    int damage;
 	    switch(this.material){
 	    case WOOD : 
-	        damage = 2;
+	        damage=2;
 	        break;
 	    case CRISTAL : 
-	        damage = 100;
+	        damage=100;
 	        break;
 	    default : 
 	        damage=50;
