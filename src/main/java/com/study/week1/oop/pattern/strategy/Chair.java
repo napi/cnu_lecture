@@ -38,7 +38,7 @@ public class Chair implements WeaponStrategy{
 	        damage = 100;
 	        break;
 	    default : 
-	        damage = 50;
+	        damage=50;
 	        break;
 	    }
 	    return damage;
