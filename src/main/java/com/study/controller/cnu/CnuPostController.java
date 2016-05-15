@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by rokim on 2016. 5. 15..
  */
 @Controller
-@RequestMapping("/board")
-public class CnuBoardController {
+@RequestMapping("/post")
+public class CnuPostController {
     @RequestMapping("")
     public String index() {
-        return "board/index";
+        return "post/index";
     }
 
     @RequestMapping("/write")
     public String write() {
-        return "board/write";
+        return "post/write";
+    }
+
+    @RequestMapping("/view")
+    public String view() {
+        return "post/view";
     }
 }
