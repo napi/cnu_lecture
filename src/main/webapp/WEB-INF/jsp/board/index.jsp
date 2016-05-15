@@ -65,6 +65,9 @@
 				</tbody>
 			</table>
 		</div><!-- ContentsTable End -->
+		<div style="padding-top: 25px;">
+			<a href="#" class="btn btn-primary right">글쓰기</a>
+		</div>
 	</div>
 </div>
 </body>
