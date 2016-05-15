@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/board")
 public class CnuBoardController {
     @RequestMapping("")
-    public String indexl() {
+    public String index() {
         return "board/index";
+    }
+
+    @RequestMapping("/write")
+    public String write() {
+        return "board/write";
     }
 }
