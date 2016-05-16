@@ -16,7 +16,7 @@
 	<div class="border-box community-write">
 		<div class="contents-table"><!-- contents-table Start -->
 			<h3 class="subtitle">글쓰기</h3>
-			<form name="procForm" action="/" method="post" target="_action_frame_forum" onsubmit="">
+			<form name="writeForm" action="/post/write" method="post" target="" onsubmit="">
 
 				<table cellspacing="0" class="request m_t10">
 				<colgroup>
@@ -28,7 +28,8 @@
 					<th scope="row">제목</th>
 					<td class="tleft">
 						<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:640px;">
-					</td></tr>
+					</td>
+				</tr>
 				<tr class="end">
 					<th scope="row">내용</th>
 					<td class="tleft">
@@ -37,14 +38,41 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<th scope="row">파일</th>
+					<td class="tleft">
+						<input type="file" class="max" name="uploadFile" placeholder="..." style="width:640px;">
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"></th>
+					<td class="tleft">
+						<div>
+							<span>ID</span>
+							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+
+							&nbsp;&nbsp;&nbsp;<span>PW</span>
+							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+						</div>
+					</td>
+
+				</tr>
+
 				</tbody>
 			</table>
 			</form>
 		</div>
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="#" onclick="submit()" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	function submit() {
+		document.getElementById("writeForm").submit();
+		return false;
+	}
+</script>
 </html>
