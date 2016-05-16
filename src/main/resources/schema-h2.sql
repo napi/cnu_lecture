@@ -6,7 +6,7 @@ CREATE TABLE cnu_post (
   author varchar(32) NOT NULL,
   password varchar(128) NOT NULL,
   title varchar(255) NOT NULL,
-  content text NOT NULL DEFAULT '',
+  content text NOT NULL,
   create_time datetime NOT NULL,
   file_path varchar(255) DEFAULT NULL,
   file_name varchar(255) DEFAuLT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE cnu_post_comment (
   post_id int(10) NOT NULL,
   author varchar(128) NOT NULL,
   password varchar(32) NOT NULL,
-  comment text NOT NULL DEFAULT '',
+  comment text NOT NULL,
   create_time datetime NOT NULL,
   is_del tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (comment_id)

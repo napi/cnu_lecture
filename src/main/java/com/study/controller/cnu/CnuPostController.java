@@ -3,12 +3,14 @@ package com.study.controller.cnu;
 import com.study.domain.cnu.CnuPost;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -17,6 +19,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/post")
 public class CnuPostController {
+    @Value("${application.security.salt}") private String securityKey;
+
     @RequestMapping("")
     public String index() {
         return "post/index";
