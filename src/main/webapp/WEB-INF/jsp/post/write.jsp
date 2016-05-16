@@ -28,7 +28,8 @@
 					<th scope="row">제목</th>
 					<td class="tleft">
 						<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:640px;">
-					</td></tr>
+					</td>
+				</tr>
 				<tr class="end">
 					<th scope="row">내용</th>
 					<td class="tleft">
@@ -37,6 +38,27 @@
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<th scope="row">파일</th>
+					<td class="tleft">
+						<input type="file" class="max" name="uploadFile" placeholder="..." style="width:640px;">
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"></th>
+					<td class="tleft">
+						<div>
+							<span>ID</span>
+							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+
+							&nbsp;&nbsp;&nbsp;<span>PW</span>
+							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+						</div>
+					</td>
+
+				</tr>
+
 				</tbody>
 			</table>
 			</form>
