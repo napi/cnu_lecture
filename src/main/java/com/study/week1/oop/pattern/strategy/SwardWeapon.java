@@ -7,7 +7,7 @@ public class SwardWeapon implements WeaponStrategy {
 		this.damage = damage;
 	}
 
-	@Override
+	
 	public int damage() {
 		return damage * 2;
 	}
