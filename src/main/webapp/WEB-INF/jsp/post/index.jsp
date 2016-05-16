@@ -33,38 +33,16 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>1</td>
-					<td class="tleft">
-						<a href="#">가나다라마바사아자차카타파하"</a>
-					</td>
-					<td>Riot 할머니</td>
-					<td>Robin Kim</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td class="tleft">
-						<a href="#">가나다라마바사아자차카타파하"</a>
-					</td>
-					<td>Riot 할머니</td>
-					<td>Robin Kim</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td class="tleft">
-						<a href="#">가나다라마바사아자차카타파하"</a>
-					</td>
-					<td>Riot 할머니</td>
-					<td>Robin Kim</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td class="tleft">
-						<a href="#">가나다라마바사아자차카타파하"</a>
-					</td>
-					<td>Riot 할머니</td>
-					<td>Robin Kim</td>
-				</tr>
+				<c:forEach items="${cnuPostList}" var="cnuPost">
+					<tr>
+						<td>${cnuPost.postId}</td>
+						<td class="tleft">
+							<a href="#">${cnuPost.title}</a>
+						</td>
+						<td>${cnuPost.author}</td>
+						<td>Robin Kim</td>
+					</tr>
+				</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- ContentsTable End -->
