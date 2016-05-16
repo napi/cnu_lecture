@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.study.domain.jpa.JpaBoard;
 
-public interface BoardRepository {
+public interface CnuRepository {
 	List<JpaBoard> selectJpaBoardList();
 
 	int insertCnuBoard(Object obj);
