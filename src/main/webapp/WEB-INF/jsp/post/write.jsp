@@ -16,7 +16,7 @@
 	<div class="border-box community-write">
 		<div class="contents-table"><!-- contents-table Start -->
 			<h3 class="subtitle">글쓰기</h3>
-			<form name="writeForm" action="/post/write" method="post" target="" onsubmit="">
+			<form name="writeForm" id="writeForm" action="/post/write" method="post" target="" onsubmit="">
 
 				<table cellspacing="0" class="request m_t10">
 				<colgroup>
@@ -50,10 +50,10 @@
 					<td class="tleft">
 						<div>
 							<span>ID</span>
-							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+							<input type="text" class="max" title="제목을 입력하세요" name="author" placeholder="작성자" style="width:120px;">
 
 							&nbsp;&nbsp;&nbsp;<span>PW</span>
-							<input type="text" class="max" title="제목을 입력하세요" name="title" placeholder="제목을 입력하세요." style="width:120px;">
+							<input type="text" class="max" title="제목을 입력하세요" name="password" placeholder="비밀번호" style="width:120px;">
 						</div>
 					</td>
 

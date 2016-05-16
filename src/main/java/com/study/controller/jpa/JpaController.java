@@ -23,7 +23,7 @@ import com.study.domain.jpa.JpaPost;
 import com.study.domain.jpa.PostForm;
 import com.study.exception.ResourceNotFoundException;
 import com.study.repository.legacy.ConnectionRepository;
-import com.study.repository.mybatis.BoardRepository;
+import com.study.repository.mybatis.MybatisRepository;
 import com.study.service.jpa.JpaBoardService;
 
 @RestController
@@ -37,7 +37,7 @@ public class JpaController {
 //	private MessageSourceAccessor messageSource;
 	
 	@Autowired
-	private BoardRepository boardRepository;
+	private MybatisRepository mybatisRepository;
 	
 	@Autowired
 	private ConnectionRepository connectionRepository;
@@ -77,7 +77,7 @@ public class JpaController {
 
 	@RequestMapping(value = "/listMybatis")
 	public ResponseEntity<List<JpaBoard>> listMybatis() {
-		return ResponseEntity.ok(boardRepository.selectJpaBoardList());
+		return ResponseEntity.ok(mybatisRepository.selectJpaBoardList());
 	}
 	
 	@RequestMapping(value = "/listLegacy")

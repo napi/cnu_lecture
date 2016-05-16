@@ -1,15 +1,16 @@
 package com.study.repository.mybatis;
 
-import java.util.List;
-
+import com.study.domain.cnu.CnuPost;
 import com.study.domain.jpa.JpaBoard;
+
+import java.util.List;
 
 public interface CnuRepository {
 	List<JpaBoard> selectJpaBoardList();
 
 	int insertCnuBoard(Object obj);
 
-	List<Object> selectCnuBoardList();
+	List<CnuPost> selectCnuPostList();
 	Object selectCnuBoard(long postId);
 
 	int updateCnuBoard(Object obj);

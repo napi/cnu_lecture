@@ -11,7 +11,7 @@ public class CnuPost {
     private String password;
     private String title;
     private String content;
-    private Date date;
+    private Date createTime;
     private boolean isDel;
 
     public int getPostId() {
@@ -54,12 +54,12 @@ public class CnuPost {
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public boolean isDel() {

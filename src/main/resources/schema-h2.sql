@@ -12,7 +12,10 @@ CREATE TABLE cnu_post (
   file_name varchar(255) DEFAuLT NULL,
   is_del tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (post_id)
-);
+) DEFAULT CHARSET=utf8;;
+
+insert into cnu_post (author, password, title, content, create_time) values ('Robin', '1234', '테스트 제목', '테스트 내용', NOW());
+insert into cnu_post (author, password, title, content, create_time) values ('Sam', '1234', 'Sample Title2', 'Sample content2', NOW());
 
 CREATE TABLE cnu_post_comment (
   comment_id int(10) NOT NULL AUTO_INCREMENT,
@@ -23,4 +26,4 @@ CREATE TABLE cnu_post_comment (
   create_time datetime NOT NULL,
   is_del tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (comment_id)
-);
+) DEFAULT CHARSET=utf8;;
