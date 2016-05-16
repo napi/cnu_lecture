@@ -16,7 +16,7 @@
 	<div class="border-box community-write">
 		<div class="contents-table"><!-- contents-table Start -->
 			<h3 class="subtitle">글쓰기</h3>
-			<form name="procForm" action="/" method="post" target="_action_frame_forum" onsubmit="">
+			<form name="writeForm" action="/post/write" method="post" target="" onsubmit="">
 
 				<table cellspacing="0" class="request m_t10">
 				<colgroup>
@@ -64,9 +64,15 @@
 			</form>
 		</div>
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="#" onclick="submit()" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	function submit() {
+		document.getElementById("writeForm").submit();
+		return false;
+	}
+</script>
 </html>
