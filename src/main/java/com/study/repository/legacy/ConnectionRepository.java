@@ -35,7 +35,7 @@ public class ConnectionRepository {
 	}
 
 	public List<JpaBoard> selectBoardList() throws SQLException {
-		String sql = "SELECT id, name, create_at FROM board";
+		String sql = "SELECT id, name, create_at FROM jpa_board";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 
@@ -55,7 +55,7 @@ public class ConnectionRepository {
 
 	
 	public List<JpaBoard> selectBoard(String boardName) throws SQLException {
-		String sql = "SELECT id, name, create_at FROM board WHERE name = ?";
+		String sql = "SELECT id, name, create_at FROM jpa_board WHERE name = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, boardName);
 		ResultSet rs = pstmt.executeQuery();
