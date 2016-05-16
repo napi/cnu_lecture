@@ -17,29 +17,14 @@ import java.util.List;
 @Controller
 @RequestMapping("/post")
 public class CnuPostController {
-    @Autowired
-    private CnuRepository cnuRepository;
-
     @RequestMapping("")
     public String index() {
-        List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
-
         return "post/index";
     }
 
-    @RequestMapping(value = "/write", method = RequestMethod.GET)
+    @RequestMapping("/write")
     public String write() {
         return "post/write";
-    }
-
-    @RequestMapping(value = "/write", method = RequestMethod.POST)
-    public String doWrite(CnuPost cnuPost) {
-        System.out.println("========");
-        System.out.println(cnuPost.getAuthor());
-        System.out.println(cnuPost.getContent());
-        System.out.println("========");
-        System.out.println("========");
-        return "redirect:/post/write";
     }
 
     @RequestMapping("/view")
