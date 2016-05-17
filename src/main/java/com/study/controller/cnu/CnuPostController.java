@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import scala.Int;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,7 +20,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/post")
 public class CnuPostController {
-    @Value("${application.security.salt}") private String securityKey;
+    @Value("${application.security.salt}")
+    private String securityKey;
 
     @Autowired
     CnuRepository cnuRepository;
@@ -55,15 +56,14 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping(value = "/view")
-    public String view(@RequestParam(required = false) String postId, Model model) {
+    @RequestMapping("/view")
+    public String view(@RequestParam int postId, Model model) {
 
-        CnuPost cnuPost = cnuRepository.selectCnuPost(Integer.parseInt(postId));
-        List <CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(Integer.parseInt(postId));
+        CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
+        List<CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(postId);
 
-        model.addAttribute("cnuPostCommentList", cnuPostCommentList);
         model.addAttribute("cnuPost", cnuPost);
-
+        model.addAttribute("cnuPostCommentList", cnuPostCommentList);
         return "post/view";
     }
 
