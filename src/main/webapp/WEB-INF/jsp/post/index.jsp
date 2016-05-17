@@ -19,16 +19,18 @@
             form.submit();
         }
         
-        function incorrectPWD(){
+        function exceptionPost(){
 			  var query = window.location.search.substring(1);
 			  if(query=="incorrectPassword"){
-
                         alert("비밀번호가 일치하지 않습니다.");
+			  }else if(query=="emptyPost"){
+			            alert("해당 게시글이 존재하지 않습니다.");
 			  }
+
         }
     </script>
 </head>
-<body onload="incorrectPWD()">
+<body onload="exceptionPost()">
 <form action = "/post/delete" id ="deletePost" method="post">
     <input name="postId" type="hidden"/>
     <input name="password" type="hidden"/>
@@ -61,7 +63,9 @@
 							<a href="#">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
-						<td>${cnuPost.createTime}</td>
+						<td>
+						    <fmt:formatDate type="date" value="${cnuPost.createTime}" />
+						</td>
 						<td><input type="button" value="삭제" onClick="deletePost(${cnuPost.postId})"/></td>
 					</tr>
 				</c:forEach>

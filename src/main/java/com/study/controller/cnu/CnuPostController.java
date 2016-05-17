@@ -86,8 +86,13 @@ public class CnuPostController {
         cnuPost.setPostId(postId);
         cnuPost.setIsDel(true);
 
-        String chk_passowrd=cnuRepository.selectCnuPost(postId).getPassword();
+        CnuPost myRepository = cnuRepository.selectCnuPost(postId);
 
+        if(myRepository == null){
+            return "redirect:/post?emptyPost";
+        }
+
+        String chk_passowrd = myRepository.getPassword();
         if(chk_passowrd.equals(password))
         {
             cnuRepository.deleteCnuPost(cnuPost);
@@ -104,8 +109,12 @@ public class CnuPostController {
         cnuPost.setPostId(postId);
         cnuPost.setIsDel(true);
 
+        CnuPost myRepository = cnuRepository.selectCnuPost(postId);
+        if(myRepository == null){
+            return "redirect:/post?emptyPost";
+        }
 
-        String chk_passowrd=cnuRepository.selectCnuPost(postId).getPassword();
+        String chk_passowrd=myRepository.getPassword();
 
         if(chk_passowrd.equals(password))
         {
