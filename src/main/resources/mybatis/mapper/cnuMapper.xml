@@ -2,6 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.repository.mybatis.CnuRepository">
+	<select id="selectCnuPostCommentList" parameterType="int" resultType="CnuPostComment">
+		SELECT
+			comment_id AS commentId,
+			post_id AS postId,
+			author,
+			password,
+			comment,
+			create_time AS createTime,
+			is_del AS isDel
+		FROM
+			cnu_post_comment
+		WHERE
+			post_id = #{postId}
+	</select>
+
 	<select id="selectCnuPostList" resultType="CnuPost">
 		SELECT
 			post_id AS postId,
