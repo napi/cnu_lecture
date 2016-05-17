@@ -1,6 +1,7 @@
 package com.study.controller.cnu;
 
 import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import scala.Int;
 
 import java.util.List;
 
@@ -52,8 +55,15 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping("/view")
-    public String view() {
+    @RequestMapping(value = "/view")
+    public String view(@RequestParam(required = false) String postId, Model model) {
+
+        CnuPost cnuPost = cnuRepository.selectCnuPost(Integer.parseInt(postId));
+        List <CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(Integer.parseInt(postId));
+
+        model.addAttribute("cnuPostCommentList", cnuPostCommentList);
+        model.addAttribute("cnuPost", cnuPost);
+
         return "post/view";
     }
 
