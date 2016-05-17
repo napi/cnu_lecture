@@ -14,8 +14,7 @@
 		FROM
 			cnu_post
 		WHERE
-		is_del = 0
-
+			is_del = 0
 	</select>
 
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
