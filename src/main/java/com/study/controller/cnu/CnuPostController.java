@@ -78,31 +78,9 @@ public class CnuPostController {
     }
 
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String delete(@RequestParam int postId, @RequestParam String password) {
-
-        CnuPost cnuPost = new CnuPost();
-        cnuPost.setPassword(password);
-        cnuPost.setPostId(postId);
-        cnuPost.setIsDel(true);
-
-        CnuPost myRepository = cnuRepository.selectCnuPost(postId);
-
-        if(myRepository == null){
-            return "redirect:/post?emptyPost";
-        }
-
-        String chk_passowrd = myRepository.getPassword();
-        if(chk_passowrd.equals(password))
-        {
-            cnuRepository.deleteCnuPost(cnuPost);
-        }
-
-        return "redirect:/post";
-    }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public String deletePost(int postId, String password) {
+    public String delete(int postId, String password) {
 
         CnuPost cnuPost = new CnuPost();
         cnuPost.setPassword(password);
