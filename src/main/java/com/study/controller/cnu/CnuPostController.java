@@ -110,13 +110,10 @@ public class CnuPostController {
         if(chk_passowrd.equals(password))
         {
             cnuRepository.deleteCnuPost(cnuPost);
+            return "redirect:/post";
         }
-        else
-        {
-            return "redirect:/post?isDel=false";
-        }
+        return "redirect:/post?incorrectPassword";
 
-        return "redirect:/post";
     }
 
 }

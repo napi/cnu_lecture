@@ -19,19 +19,16 @@
             form.submit();
         }
         
-        function isNotCorrectPWD(){
-			  var query_string = {};
+        function incorrectPWD(){
 			  var query = window.location.search.substring(1);
-			  var query_string = query.split("=");
-			 	
-			  if(query_string[1]  == "false")
-			  {
-			 		alert("비밀번호가 일치하지 않습니다.");
+			  if(query=="incorrectPassword"){
+
+                        alert("비밀번호가 일치하지 않습니다.");
 			  }
         }
     </script>
 </head>
-<body onload="isNotCorrectPWD()">
+<body onload="incorrectPWD()">
 <form action = "/post/delete" id ="deletePost" method="post">
     <input name="postId" type="hidden"/>
     <input name="password" type="hidden"/>
