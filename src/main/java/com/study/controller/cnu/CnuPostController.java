@@ -91,6 +91,10 @@ public class CnuPostController {
         {
             cnuRepository.deleteCnuPost(cnuPost);
         }
+        else
+        {
+            return "redirect:/post?isDel=false";
+        }
 
         return "redirect:/post";
     }
