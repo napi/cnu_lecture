@@ -13,6 +13,9 @@
 			is_del AS isDel
 		FROM
 			cnu_post
+		WHERE
+		is_del = 0
+
 	</select>
 
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
@@ -39,4 +42,15 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	<update id="deleteCnuPost" parameterType="CnuPost" >
+		UPDATE
+		cnu_post
+		SET
+		is_del = 1
+		WHERE
+		post_id = #{postId}
+		AND
+		password = #{password}
+	</update>
 </mapper>

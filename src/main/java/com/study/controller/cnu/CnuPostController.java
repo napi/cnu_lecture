@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,7 +26,6 @@ public class CnuPostController {
     @RequestMapping("")
     public String index(Model model) {
         List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
-
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
@@ -57,11 +57,42 @@ public class CnuPostController {
         return "post/view";
     }
 
-    @RequestMapping("/delete")
-    public String delete(int postId, String password) {
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(@RequestParam int postId, @RequestParam String password) {
+
+        CnuPost cnuPost = new CnuPost();
+        cnuPost.setPassword(password);
+        cnuPost.setPostId(postId);
+        cnuPost.setIsDel(true);
+
+        String chk_passowrd=cnuRepository.selectCnuPost(postId).getPassword();
+
+        if(chk_passowrd.equals(password))
+        {
+            cnuRepository.deleteCnuPost(cnuPost);
+        }
+
+        return "redirect:/post";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deletePost(int postId, String password) {
+
+        CnuPost cnuPost = new CnuPost();
+        cnuPost.setPassword(password);
+        cnuPost.setPostId(postId);
+        cnuPost.setIsDel(true);
 
 
-        return "post/view";
+        String chk_passowrd=cnuRepository.selectCnuPost(postId).getPassword();
+
+        if(chk_passowrd.equals(password))
+        {
+            cnuRepository.deleteCnuPost(cnuPost);
+        }
+
+        return "redirect:/post";
     }
 
 }

@@ -9,10 +9,22 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="/css/main.css"/>
+	<script>
+        function deletePost(postId){
+            alert("패스워드를 입력하셔야 합니다.");
+            var password =  prompt("PASSWD 입력","");
+            var form =  document.getElementById("deletePost");
+            form.postId.value=postId;
+            form.password.value=password;
+            form.submit();
+        }
+    </script>
 </head>
 <body>
-
-<body>
+<form action = "/post/delete" id ="deletePost" method="post">
+    <input name="postId" type="hidden"/>
+    <input name="password" type="hidden"/>
+</form>
 <div class="main">
 	<div class="border-box">
 		<div class="contents-table"><!-- ContentsTable Start -->
@@ -30,6 +42,7 @@
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
+					<th scope="col">삭제</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -40,14 +53,15 @@
 							<a href="#">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
-						<td>Robin Kim</td>
+						<td>${cnuPost.createTime}</td>
+						<td><input type="button" value="삭제" onClick="deletePost(${cnuPost.postId})"/></td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- ContentsTable End -->
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="/post/write" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>
