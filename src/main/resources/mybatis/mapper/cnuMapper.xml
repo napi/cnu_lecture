@@ -24,7 +24,7 @@
 		author,
 		password,
 		comment,
-		create_time,
+		create_time AS createTime,
 		is_del
 		FROM
 		cnu_post_comment
