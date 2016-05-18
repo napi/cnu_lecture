@@ -67,22 +67,24 @@ public class CnuPostController {
          * 그 외에 삭제/comment 를 담당한 학생분들은 이 dummy 를 이용해서 CnuPost 모델을 가져온다고 생각하고 개발해주세요.
          */
     	List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
-        CnuPost cnuPost = new CnuPost();
-        
-        cnuPost.setTitle(cnuPostList.get(postId-1).getTitle());
-        cnuPost.setContent(cnuPostList.get(postId-1).getContent());
-        cnuPost.setAuthor(cnuPostList.get(postId-1).getAuthor());
-        cnuPost.setPassword(cnuPostList.get(postId-1).getPassword());
-        cnuPost.setCreateTime(cnuPostList.get(postId-1).getCreateTime());
-        cnuPost.setPostId(postId);
+    	for(CnuPost cnuPost : cnuPostList){
+    		if(cnuPost.getPostId() == postId){
+    			model.addAttribute("cnuPost", cnuPost);
+    		}
+    	}
         /** Dummy CnuPost END **/
 
-        model.addAttribute("cnuPost", cnuPost);
+   
 
         return "post/view";
     }
 
-    @RequestMapping("/delete")
+    private void foreach(Object object) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@RequestMapping("/delete")
     public String delete(int postId, String password) {
 
 
