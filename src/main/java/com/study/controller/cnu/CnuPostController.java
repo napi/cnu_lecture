@@ -2,6 +2,8 @@ package com.study.controller.cnu;
 
 import com.study.domain.cnu.CnuPost;
 import com.study.repository.mybatis.CnuRepository;
+
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,7 @@ public class CnuPostController {
     @RequestMapping("")
     public String index(Model model) {
         List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
-
+        
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
@@ -54,7 +56,7 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping("/view")
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(@RequestParam int postId, Model model) {
 
         /**
@@ -64,12 +66,14 @@ public class CnuPostController {
          * post의 detail view 를 담당한 조는 이 dummy 를 삭제하고 자신들이 개발한 코드를 넣어주세요.
          * 그 외에 삭제/comment 를 담당한 학생분들은 이 dummy 를 이용해서 CnuPost 모델을 가져온다고 생각하고 개발해주세요.
          */
+    	List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
         CnuPost cnuPost = new CnuPost();
-        cnuPost.setTitle("Dummy Title");
-        cnuPost.setContent("Dummy content");
-        cnuPost.setAuthor("Dummy Author");
-        cnuPost.setPassword("1111");
-        cnuPost.setCreateTime(new Date());
+        
+        cnuPost.setTitle(cnuPostList.get(postId-1).getTitle());
+        cnuPost.setContent(cnuPostList.get(postId-1).getContent());
+        cnuPost.setAuthor(cnuPostList.get(postId-1).getAuthor());
+        cnuPost.setPassword(cnuPostList.get(postId-1).getPassword());
+        cnuPost.setCreateTime(cnuPostList.get(postId-1).getCreateTime());
         cnuPost.setPostId(postId);
         /** Dummy CnuPost END **/
 
