@@ -79,11 +79,6 @@ public class CnuPostController {
         return "post/view";
     }
 
-    private void foreach(Object object) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@RequestMapping("/delete")
     public String delete(int postId, String password) {
 
