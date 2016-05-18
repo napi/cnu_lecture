@@ -53,7 +53,7 @@
 			<ul class="fdb_lst_ul ">
 				<li class="fdb_itm clear">
 					<div class="meta">
-					<c:forEach items="${cnuPostList}" var="cnuPost">
+					
 						<b>Robin</b><span class="date">2016-05-16 11:00:00</span>
 					</div>
 
