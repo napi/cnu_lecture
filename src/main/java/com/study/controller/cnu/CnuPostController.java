@@ -67,9 +67,6 @@ public class CnuPostController {
     	List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
     	for(CnuPost cnuPost : cnuPostList){ 
 			if(cnuPost.getPostId() == postId){
-			cnuPost.setTitle(cnuPostList.get(postId-1).getTitle());	
-			cnuPost.setContent(cnuPostList.get(postId-1).getContent());
-			cnuPost.setAuthor(cnuPostList.get(postId-1).getAuthor());	
 			 model.addAttribute("cnuPost", cnuPost);
 			}
 		 }
