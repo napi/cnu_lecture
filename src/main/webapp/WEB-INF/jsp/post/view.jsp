@@ -58,8 +58,8 @@
 
 			<h3 class="subtitle">덧글</h3>
 			<ul class="fdb_lst_ul ">
+				<c:forEach items="${cnuCommentList}" var="cnuCommentList">
 				<li class="fdb_itm clear">
-					<c:forEach items="${cnuCommentList}" var="cnuCommentList">
 					<div class="meta">
 						<b>${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
 					</div>
@@ -70,8 +70,8 @@
 
 					<div class="fdb_nav img_tx">
 					</div>
-					</c:forEach>
 				</li>
+				</c:forEach>
 			</ul>
 
 
