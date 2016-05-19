@@ -104,7 +104,7 @@
 							<label for="password_2756295">비밀번호</label>
 							<input type="password" name="password" id="password_2756295" class="itx n_p">
 						</span>
-						<input type="text" value="${cnuPost.postId}" name="postId" id="cnupostidinput" class="itx n_p" style="display:none;">
+						<input type="hidden" value="${cnuPost.postId}" name="postId" id="postId" class="itx n_p">
 						<input type="submit" value="등록" class="btn_img">
 						<div class="opt_chk">
 						</div>

@@ -37,7 +37,7 @@
 					<tr>
 						<td>${cnuPost.postId}</td>
 						<td class="tleft">
-							<a href="/post/view/?postId=${cnuPost.postId}">${cnuPost.title}</a>
+							<a href="#">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
 						<td>Robin Kim</td>
