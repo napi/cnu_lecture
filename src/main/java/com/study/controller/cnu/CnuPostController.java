@@ -59,9 +59,16 @@ public class CnuPostController {
 
     @RequestMapping("/delete")
     public String delete(int postId, String password) {
+        CnuPost cnuPost = new CnuPost();
 
 
         return "post/view";
+    }
+
+    @RequestMapping( value = "/commentDelete", method = RequestMethod.GET)
+    public String deleteCnuComment(){
+            cnuRepository.deleteCnuComment();
+        return "redirect:/post/view";
     }
 
 }

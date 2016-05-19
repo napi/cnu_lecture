@@ -39,4 +39,10 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	<delete id="deleteCnuComment" parameterType="CnuPost">
+		DELETE
+		FROM
+			cnu_post
+	</delete>
 </mapper>
