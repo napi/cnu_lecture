@@ -25,10 +25,10 @@
 			  var query = window.location.search.substring(1);
 			  if(query=="incorrectPassword"){
                         alert("비밀번호가 일치하지 않습니다.");
+                        location.replace('/post/');
 			  }else if(query=="emptyPost"){
 			            alert("해당 게시글이 존재하지 않습니다.");
 			  }
-
         }
     </script>
 </head>
