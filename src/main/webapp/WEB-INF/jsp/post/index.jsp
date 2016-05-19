@@ -14,9 +14,11 @@
             alert("패스워드를 입력하셔야 합니다.");
             var password =  prompt("PASSWD 입력","");
             var form =  document.getElementById("deletePost");
-            form.postId.value=postId;
-            form.password.value=password;
-            form.submit();
+            if(password != null){
+            	form.postId.value=postId;
+            	form.password.value=password;
+            	form.submit();
+            }
         }
         
         function exceptionPost(){
