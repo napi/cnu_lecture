@@ -1,7 +1,8 @@
 package com.study.controller.cnu;
 
-import com.study.domain.cnu.CnuPost;
-import com.study.repository.mybatis.CnuRepository;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -10,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Date;
-import java.util.List;
+import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuPostComment;
+import com.study.repository.mybatis.CnuRepository;
 
 /**
  * Created by rokim on 2016. 5. 15..
@@ -54,9 +56,23 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public String doWriteComment(String commentValue,
+                          String nick_name,
+                          String password,
+                          String postId) {
+        CnuPostComment cnuPostComment = new CnuPostComment();
+        cnuPostComment.setAuthor(nick_name);
+        cnuPostComment.setPassword(password);
+        cnuPostComment.setComment(commentValue);
+        cnuPostComment.setPostId(Integer.parseInt(postId));
+
+        cnuRepository.insertCnuPostComment(cnuPostComment);
+
+        return "redirect:/post/view/?postId="+postId;
+    }
     @RequestMapping("/view")
     public String view(@RequestParam int postId, Model model) {
-
         /**
          * Dummy CnuPost Start
          *
