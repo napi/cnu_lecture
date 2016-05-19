@@ -1,6 +1,7 @@
 package com.study.controller.cnu;
 
 import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +53,22 @@ public class CnuPostController {
         cnuRepository.insertCnuPost(cnuPost);
 
         return "redirect:/post";
+    }
+    
+    /*
+     * comment 작성 메소드 추가
+     */
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public String comment(String author, String password, String comment) {
+    	CnuPostComment cnupostcomment = new CnuPostComment();
+    	cnupostcomment.setAuthor(author);
+    	cnupostcomment.setPassword(password);
+    	cnupostcomment.setComment(comment);
+    	cnupostcomment.setCreateTime(new Date());
+    	
+    	cnuRepository.insertCnuPostComment(cnupostcomment);
+		
+    	return "redirect:/post/view" + cnupostcomment.getPostId();
     }
 
     @RequestMapping("/view")
