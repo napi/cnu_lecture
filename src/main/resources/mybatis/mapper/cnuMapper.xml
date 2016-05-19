@@ -2,43 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.repository.mybatis.CnuRepository">
+
 	<select id="selectCnuPostList" resultType="CnuPost">
 		SELECT
-			post_id AS postId,
-			author,
-			password,
-			title,
-			content,
-			create_time AS createTime,
-			is_del AS isDel
+				post_id AS postId,
+				author,	
+				password,
+				title,
+				content,
+				create_time AS createTime,
+				is_del AS isDel,
+				view_count AS viewCount
 		FROM
-			cnu_post
+				cnu_post
 		WHERE
-			is_del = 0
+				is_del = 0
 	</select>
 
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
 		SELECT
-			post_id AS postId,
-			author,
-			password,
-			title,
-			content,
-			create_time AS createTime,
-			is_del AS isDel
+				post_id AS postId,
+				author,
+				password,
+				title,
+				content,
+				create_time AS createTime,
+				is_del AS isDel
 		FROM
-			cnu_post
+				cnu_post
 		WHERE
-			post_id = #{postId}
+				post_id = #{postId}
 	</select>
 
 	<insert id="insertCnuPost" parameterType="CnuPost">
 		INSERT INTO cnu_post
-			(author, password, title, content, create_time)
+		(author, password, title, content, create_time)
 		VALUES
-			(#{author}, #{password}, #{title}, #{content}, NOW())
+		(#{author}, #{password}, #{title}, #{content}, NOW())
 		<selectKey resultType="int" keyProperty="postId" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	<update id="updateViewCount" parameterType="int">
+		UPDATE
+				cnu_post
+		SET
+				view_count = view_count + 1
+		WHERE
+				post_id = #{postId}
+	</update>
+	
 </mapper>
