@@ -81,7 +81,7 @@ public class CnuPostController {
         return "post/view";
     }
     @RequestMapping(value = "/view", method = RequestMethod.POST)
-    public String doWriteComment(@RequestParam int postId,String nick_name,String password,String comment) {
+    public String doWriteComment(int postId,String nick_name,String password,String comment) {
 
     	CnuPostComment PostComment = new CnuPostComment();
     	PostComment.setPostId(postId);
