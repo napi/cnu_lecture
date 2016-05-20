@@ -39,10 +39,12 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
-	<delete id="deleteCnuPost"  parameterType="int" >
+	<delete id="deleteCnuPost" parameterType="CnuPost">
 		DELETE FROM 
 			cnu_post 
 		WHERE 
 			post_id = #{postId} 
+		AND
+			password = #{password}
 	</delete>	
 </mapper>
