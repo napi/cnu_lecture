@@ -31,6 +31,21 @@
 		WHERE
 			post_id = #{postId}
 	</select>
+	
+	<select id="selectCnuCommentList" parameterType="int" resultType="CnuComment">
+		SELECT
+			comment_id AS postID,
+			post_id AS postId,
+			author,
+			password,
+			comment,
+			create_time,
+			is_del
+		FROM
+			cnu_post_comment
+		WHERE
+			post_id = #{postId} AND is_del = 0
+	</select>
 
 	<insert id="insertCnuPost" parameterType="CnuPost">
 		INSERT INTO cnu_post
