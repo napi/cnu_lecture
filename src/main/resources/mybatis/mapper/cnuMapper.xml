@@ -39,14 +39,12 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
-<<<<<<< HEAD
 	<delete id="deleteCnuPost" parameterType="CnuPost">
-=======
-	<delete id="deleteCnuPost"  parameterType="int" >
->>>>>>> branch 'week2_homework' of https://github.com/chw1787/cnu_lecture
 		DELETE FROM 
 			cnu_post 
 		WHERE 
 			post_id = #{postId} 
+		AND
+			password = #{password}
 	</delete>	
 </mapper>

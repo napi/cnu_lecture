@@ -101,7 +101,7 @@
 			</div>
 		</div>
 		<div style="padding-top: 25px; float: left;">
-			<form action="/post/delete" method="get">
+			<form action="/post/delete" method="post">
 				<input type="hidden" name="postId" value=${cnuPost.postId}>
 				<input type="text" name="password" placeholder="비밀번호">
 				<input type="submit" value="삭제" class="btn btn-primary left">
