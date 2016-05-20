@@ -48,6 +48,6 @@
 		INSERT INTO cnu_post_comment
 			(post_id , author, password, comment, create_time)
 		VALUES
-			(#{postId}, #{author}, #{password}, #{title}, NOW())
+			(#{postId}, #{author}, #{password}, #{comment}, NOW())
 	</insert>
 </mapper>

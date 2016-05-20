@@ -58,7 +58,7 @@ public class CnuPostController {
     /*
      * comment 작성 메소드 추가
      */
-    @RequestMapping(value = "/post/view?postId=", method = RequestMethod.POST)
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
     public String comment(@RequestParam int postId, String author, String password, String comment) {
     	CnuPostComment cnupostcomment = new CnuPostComment();
     	cnupostcomment.setAuthor(author);
@@ -69,10 +69,10 @@ public class CnuPostController {
     	
     	cnuRepository.insertCnuPostComment(cnupostcomment);
 		
-    	return "redirect:/post/view";
+    	return "redirect:/post/view?postId=" + cnupostcomment.getPostId();
     }
 
-    @RequestMapping("/view")
+    @RequestMapping(value = "/view")
     public String view(@RequestParam int postId, Model model) {
 
         /**
