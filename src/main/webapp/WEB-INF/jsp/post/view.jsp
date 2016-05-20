@@ -83,7 +83,14 @@
 					</div>
 				</li>
 			</ul>
-
+			<div>
+ 				<form name="deleteForm" id="deleteForm" action="/post/deleteComment" method="post" target="" onsubmit="">
+					CommentID<input type="text" name="commentID" />
+ 					password<input type="text" name="password" />
+ 					<input type="submit" value="삭제" class="btn btn-primary right" />
+ 				</form>
+ 				
+ 			</div>
 
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
