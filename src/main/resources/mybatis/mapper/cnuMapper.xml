@@ -17,8 +17,7 @@
 			is_del = 0
 	</select>
 
-	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
-		SELECT
+	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">SELECT
 			post_id AS postId,
 			author,
 			password,
@@ -29,8 +28,7 @@
 		FROM
 			cnu_post
 		WHERE
-			post_id = #{postId}
-	</select>
+			post_id = #{postId}</select>
 
 	<insert id="insertCnuPost" parameterType="CnuPost">
 		INSERT INTO cnu_post
@@ -41,4 +39,12 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	<delete id="deleteCnuPost" parameterType="CnuPost" >
+		DELETE FROM 
+			cnu_post 
+		WHERE 
+			post_id = #{postId} 
+		AND 
+			password = #{password}
+	</delete>	
 </mapper>
