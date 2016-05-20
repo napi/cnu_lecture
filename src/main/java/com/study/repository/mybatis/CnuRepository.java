@@ -1,5 +1,6 @@
 package com.study.repository.mybatis;
 
+import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.domain.jpa.JpaBoard;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public interface CnuRepository {
 
 
 	int insertCnuPost(CnuPost obj);
+	int insertCnuComment(CnuComment obj);
 
 
 	CnuPost selectCnuBoard(int postId);
