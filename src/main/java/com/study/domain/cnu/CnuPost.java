@@ -11,6 +11,7 @@ public class CnuPost {
     private String password;
     private String title;
     private String content;
+    private int viewCount;
     private Date createTime;
     private boolean isDel;
 
@@ -52,6 +53,14 @@ public class CnuPost {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    
+    public int getViewCount() {
+    	return viewCount;
+    }
+    
+    public void setViewCount(int viewCount) {
+    	this.viewCount = viewCount;
     }
 
     public Date getCreateTime() {
