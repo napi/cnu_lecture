@@ -78,13 +78,10 @@
 					<div>
 						<div class="xe_content">덧글이 이게 뭐냐</div>
 					</div>
-
 					<div class="fdb_nav img_tx">
 					</div>
 				</li>
 			</ul>
-
-
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
 				<form action="./" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
@@ -108,6 +105,15 @@
 						<div class="opt_chk">
 						</div>
 					</div>
+				</form>
+			</div>
+			<div class="cmt_editor" style="padding-top: 10px; padding-bottom: 20px;">
+				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 삭제</strong></label>
+				<form name="deleteForm" id="deleteForm" action="/post/commentDelete" method="post" target="" onsubmit="">
+					CommentId :&nbsp;<input type="text" name="commentID">&nbsp;
+					PostId :&nbsp;<input type="text" name="postID">&nbsp;
+					Password :&nbsp;<input type="text" name="password">&nbsp;
+					<input type="submit" value="삭제" class="btn_img">
 				</form>
 			</div>
 		</div>

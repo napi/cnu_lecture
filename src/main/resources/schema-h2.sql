@@ -31,4 +31,3 @@ CREATE TABLE cnu_post_comment (
 
 insert into cnu_post_comment (post_id, author, password, comment, create_time) values (1, 'Robin', '1234', '코멘트 내용', NOW());
 insert into cnu_post_comment (post_id, author, password, comment, create_time) values (1, 'Albert', '1234', '덧글이 이게 뭐냐?', NOW());
-

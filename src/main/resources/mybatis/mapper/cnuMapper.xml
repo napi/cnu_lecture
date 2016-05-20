@@ -41,4 +41,10 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	<update id="deleteCnuComment" parameterType="CnuPostComment">
+		UPDATE cnu_post_comment SET IS_DEL=1 WHERE (COMMENT_ID=#{commentId}) AND (POST_ID=#{postId}) AND (PASSWORD=#{password})
+ 
+
+	</update>
 </mapper>
