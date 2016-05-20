@@ -37,7 +37,7 @@
 					<tr>
 						<td>${cnuPost.postId}</td>
 						<td class="tleft">
-							<a href="#">${cnuPost.title}</a>
+							<a href="post/view?postId=${cnuPost.postId}">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
 						<td>Robin Kim</td>
@@ -47,7 +47,7 @@
 			</table>
 		</div><!-- ContentsTable End -->
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="post/write" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>

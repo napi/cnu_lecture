@@ -112,7 +112,10 @@
 			</div>
 		</div>
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">목록</a>
+			<a href="/post" class="btn btn-primary right">목록</a>
+		</div>
+		<div style="padding-top: 25px;">
+			<a href="/delete?postId=${cnuPost.postId}" class="btn btn-primary left">삭제</a>
 		</div>
 	</div>
 </div>

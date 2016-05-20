@@ -62,7 +62,7 @@
 				</tbody>
 			</table>
 			</form>
-		</div>
+		</div> 
 		<div style="padding-top: 25px;">
 			<a href="#" onclick="submit()" class="btn btn-primary right">글쓰기</a>
 		</div>
