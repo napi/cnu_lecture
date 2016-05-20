@@ -40,9 +40,8 @@
 		</selectKey>
 	</insert>
 
-	<delete id="deleteCnuComment" parameterType="CnuPost">
-		DELETE
-		FROM
-			cnu_post
-	</delete>
+	<update id="deleteCnuComment" parameterType="CnuPostComment">
+ 
+
+	</update>
 </mapper>
