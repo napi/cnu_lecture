@@ -1,4 +1,4 @@
-package com.study.domain;
+package com.study.domain.jpa;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Post {
+public class JpaPost {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -20,14 +20,14 @@ public class Post {
 	private Date createAt;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	private Board board;
+	private JpaBoard jpaBoard;
 	
-	public Post() {
+	public JpaPost() {
 		
 	}
 	
-	protected Post(Board board, String author, String title, String content) {
-		this.board = board;
+	protected JpaPost(JpaBoard jpaBoard, String author, String title, String content) {
+		this.jpaBoard = jpaBoard;
 		this.author = author;
 		this.title = title;
 		this.content = content;		
@@ -35,7 +35,7 @@ public class Post {
 		this.createAt = new Date();
 	}
 
-	public Post update(String author, String title, String content) {
+	public JpaPost update(String author, String title, String content) {
 		this.author = author;
 		this.title = title;
 		this.content = content;
@@ -63,8 +63,8 @@ public class Post {
 		return createAt;
 	}
 
-	protected Board getBoard() {
-		return board;
+	protected JpaBoard getJpaBoard() {
+		return jpaBoard;
 	}
 
 	

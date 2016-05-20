@@ -1,4 +1,4 @@
-package com.study.domain;
+package com.study.domain.jpa;
 
 import java.util.Date;
 
@@ -8,24 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Board {
+public class JpaBoard {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private Date createAt;
 	
-	public Board() {
+	public JpaBoard() {
 		
 	}
 	
-	public Board(String name) {
+	public JpaBoard(String name) {
 		this.name = name;
 		this.createAt = new Date();
 	}
 	
-	public Post write(String author, String title, String content) {
-		return new Post(this, author, title, content);
+	public JpaPost write(String author, String title, String content) {
+		return new JpaPost(this, author, title, content);
 	}	
 	
 	public void setId(Long id) {
