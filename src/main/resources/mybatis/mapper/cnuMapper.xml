@@ -46,21 +46,8 @@
 	<!-- comment  -->
 	<insert id="insertCnuPostComment" parameterType="CnuPostComment">
 		INSERT INTO cnu_post_comment
-			(author, password, comment, create_time)
+			(post_id , author, password, comment, create_time)
 		VALUES
-			(#{author}. #{password}, #{title}, NOW())
-		SELECT
-			post_id AS postId,
-			is_del AS isDel,
-			comment_id AS commentId
-		FROM
-			cnu_post_comment
-		WHERE
-			post_id = #{postId}
-			comment_id = #{comment_id}
-			is_del = 0	
-		<selectKey resultType="int" keyProperty="commentId" order="AFTER">
-			SELECT LAST_INSERT_ID()
-		</selectKey>
+			(#{postId}, #{author}, #{password}, #{title}, NOW())
 	</insert>
 </mapper>
