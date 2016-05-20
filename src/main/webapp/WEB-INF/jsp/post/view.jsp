@@ -82,15 +82,6 @@
 					</div>
 				</li>
 			</ul>
-<div>
-<form name="deleteForm" id="deleteForm" action="/post/commentDelete" method="post" target="" onsubmit="">
-<input type="text" name="commentID">
-<input type="text" name="postID">
-<input type="text" name="password">
-</form>
-<a href="#" onclick="submit()" class="btn btn-primary right">삭제</a>
-</div>
-
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
 				<form action="./" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
@@ -116,18 +107,20 @@
 					</div>
 				</form>
 			</div>
+			<div class="cmt_editor" style="padding-top: 10px; padding-bottom: 20px;">
+				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 삭제</strong></label>
+				<form name="deleteForm" id="deleteForm" action="/post/commentDelete" method="post" target="" onsubmit="">
+					CommentId :&nbsp;<input type="text" name="commentID">&nbsp;
+					PostId :&nbsp;<input type="text" name="postID">&nbsp;
+					Password :&nbsp;<input type="text" name="password">&nbsp;
+					<input type="submit" value="삭제" class="btn_img">
+				</form>
+			</div>
 		</div>
 		<div style="padding-top: 25px;">
 			<a href="#" class="btn btn-primary right">목록</a>
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	function submit() {
-		document.getElementById("deleteForm").submit();
-		return false;
-	}
-</script>
 </body>
 </html>
