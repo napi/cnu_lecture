@@ -78,12 +78,18 @@
 					<div>
 						<div class="xe_content">덧글이 이게 뭐냐</div>
 					</div>
-
 					<div class="fdb_nav img_tx">
 					</div>
 				</li>
 			</ul>
-
+<div>
+<form name="deleteForm" id="deleteForm" action="/post/commentDelete" method="post" target="" onsubmit="">
+<input type="text" name="commentID">
+<input type="text" name="postID">
+<input type="text" name="password">
+</form>
+<a href="#" onclick="submit()" class="btn btn-primary right">삭제</a>
+</div>
 
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
@@ -116,5 +122,12 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function submit() {
+		document.getElementById("deleteForm").submit();
+		return false;
+	}
+</script>
 </body>
 </html>
