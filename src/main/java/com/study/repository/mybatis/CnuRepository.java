@@ -11,7 +11,6 @@ import java.util.List;
 public interface CnuRepository {
 	List<CnuPost> selectCnuPostList();
 	int insertCnuPost(CnuPost obj);
-
 	CnuPost selectCnuPost(int postId);
 	int updateCnuPost(CnuPost obj);
 	int deleteCnuPost(int postId, String password);

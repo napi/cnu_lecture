@@ -39,7 +39,7 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
-	<delete id="deleteCnuPost" parameterType="CnuPost" >
+	<delete id="deleteCnuPost" parameterType="CnuPost">
 		DELETE FROM 
 			cnu_post 
 		WHERE 
