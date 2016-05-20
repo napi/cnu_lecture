@@ -16,6 +16,6 @@ public class OldSingletonTest {
 		OldSingleton singleton1 = OldSingleton.getInstance();
 		OldSingleton singleton2 = OldSingleton.getInstance();
 		
-		assertThat("객체간의 == 비교는 false가 되어야 하는 걸까?", singleton1 == singleton2, is(false));
+		assertThat("객체간의 == 비교는 false가 되어야 하는 걸까?", singleton1 == singleton2, is(true));
 	}
 }

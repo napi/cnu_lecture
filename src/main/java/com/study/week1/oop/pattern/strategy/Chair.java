@@ -20,11 +20,26 @@ public class Chair implements WeaponStrategy {
 		log.info("[{}] 님이 의자에 앉아 휴식을 취합니다", player.getName());
 	}
 
+	@Override
+	public int damage() {
+		return this.material.getDamage();
+	}
+
 	enum Material {
-		WOOD,
-		STONE,
-		IRON,
-		CRISTAL
+		WOOD(2),
+		STONE(2),
+		IRON(2),
+		CRISTAL(100);
+
+		private final int damage;
+
+		Material(int damage) {
+			this.damage = damage;
+		}
+
+		public int getDamage() {
+			return damage;
+		}
 	}
 
 	@Override
