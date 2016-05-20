@@ -6,67 +6,77 @@ import java.util.Date;
  * Created by rokim on 2016. 5. 16..
  */
 public class CnuPost {
-    private int postId;
-    private String author;
-    private String password;
-    private String title;
-    private String content;
-    private Date createTime;
-    private boolean isDel;
+	private int postId;
+	private String author;
+	private String password;
+	private String title;
+	private String content;
+	private int viewCount;
 
-    public int getPostId() {
-        return postId;
-    }
+	public int getViewCount() {
+		return viewCount;
+	}
 
-    public void setPostId(int postId) {
-        this.postId = postId;
-    }
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
 
-    public String getAuthor() {
-        return author;
-    }
+	private Date createTime;
+	private boolean isDel;
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
+	public int getPostId() {
+		return postId;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getAuthor() {
+		return author;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public boolean isDel() {
-        return isDel;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public void setIsDel(boolean isDel) {
-        this.isDel = isDel;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public boolean isDel() {
+		return isDel;
+	}
+
+	public void setIsDel(boolean isDel) {
+		this.isDel = isDel;
+	}
 }
