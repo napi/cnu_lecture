@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CnuRepository {
 	List<CnuPost> selectCnuPostList();
-
+	CnuPost selectCnuPost(int postId);
 
 
 

@@ -9,6 +9,7 @@
 			password,
 			title,
 			content,
+			view_count AS viewCount,
 			create_time AS createTime,
 			is_del AS isDel
 		FROM
@@ -24,12 +25,15 @@
 			password,
 			title,
 			content,
+			view_count AS viewCount+1,
 			create_time AS createTime,
 			is_del AS isDel
 		FROM
 			cnu_post
 		WHERE
 			post_id = #{postId}
+			
+		UPDATE cnu_post SET view_count = view_count WHERE post_id = #{postId}
 	</select>
 
 	<insert id="insertCnuPost" parameterType="CnuPost">
