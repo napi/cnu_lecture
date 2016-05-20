@@ -46,5 +46,17 @@
 			post_id = #{postId} 
 		AND
 			password = #{password}
+
 	</delete>	
+	<update id="updateCnuPost" parameterType="CnuPost">
+		UPDATE 
+			cnu_post
+		SET 
+			is_del = 1 
+		WHERE 
+			post_id = #{postId} 	
+		AND
+			password = #{password}
+
+	</update>	
 </mapper>
