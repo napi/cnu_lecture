@@ -22,7 +22,7 @@
 					<col style="width:10%">
 					<col style="width:*%">
 					<col style="width:15%">
-					<col style="width:15%">
+					<col style="width:20%">
 				</colgroup>
 				<thead>
 				<tr>
@@ -37,17 +37,17 @@
 					<tr>
 						<td>${cnuPost.postId}</td>
 						<td class="tleft">
-							<a href="#">${cnuPost.title}</a>
+							<a href="post/view?postId=${cnuPost.postId}">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
-						<td>Robin Kim</td>
+						<td>${cnuPost.createTime}</td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- ContentsTable End -->
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="/post/write" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>
