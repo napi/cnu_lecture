@@ -100,8 +100,14 @@
 				</form>
 			</div>
 		</div>
-		<div style="padding-top: 25px;">
-			<a href="/post/delete" class="btn btn-primary left">삭제</a>
+		<div style="padding-top: 25px; float: left;">
+			<form action="/post/delete" method="get">
+				<input type="hidden" name="postId" value=${cnuPost.postId}>
+				<input type="text" name="password" placeholder="비밀번호">
+				<input type="submit" value="삭제" class="btn btn-primary left">
+			</form>
+		</div>
+		<div style="padding-top: 25px; float: right;"> 
 			<a href="/post" class="btn btn-primary right">목록</a>
 		</div>
 	</div>
