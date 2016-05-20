@@ -90,7 +90,7 @@
 				<form action="/post/view?postId=${param.postId}" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
 					<div class="simple_wrt" style="margin-left:0px;margin-right:0px;">
 						<div class="text">
-							<input type="hidden" name="use_html" value="Y">>
+							<input type="hidden" name="use_html" value="Y">
 							<input type="hidden" id="htm_2756295" value="n">
 							<textarea name="comment" id="editor_2756295" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; padding: 4px 6px; width: 936px; font-family: Tahoma, Geneva, sans-serif; font-size: 12px; line-height: 18px;">.<br>.</div>
 						</div>
