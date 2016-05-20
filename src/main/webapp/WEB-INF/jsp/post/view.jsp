@@ -87,7 +87,7 @@
 
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
-				<form action="./view?postId=${param.postId}" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
+				<form action="./view" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
 					<div class="simple_wrt" style="margin-left:0px;margin-right:0px;">
 						<div class="text">
 							<input type="hidden" name="postId" value="${param.postId}">
