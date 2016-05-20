@@ -11,8 +11,6 @@ public interface CnuRepository {
 	List<CnuPost> selectCnuPostList();
 
 
-
-
 	int insertCnuPost(CnuPost obj);
 
 
