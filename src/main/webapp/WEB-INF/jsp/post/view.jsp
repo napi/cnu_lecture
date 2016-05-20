@@ -58,30 +58,20 @@
 
 			<h3 class="subtitle">덧글</h3>
 			<ul class="fdb_lst_ul ">
+				<c:forEach items="${cnuCommentList}" var="cnuCommentList">
 				<li class="fdb_itm clear">
 					<div class="meta">
-						<b>Robin</b><span class="date">2016-05-16 11:00:00</span>
+						<b>${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
 					</div>
 
 					<div>
-						<div class="xe_content">덧글이 이게 뭐냐</div>
+						<div class="xe_content">${cnuCommentList.comment}</div>
 					</div>
 
 					<div class="fdb_nav img_tx">
 					</div>
 				</li>
-				<li class="fdb_itm clear">
-					<div class="meta">
-						<b>Robin</b><span class="date">2016-05-16 11:00:00</span>
-					</div>
-
-					<div>
-						<div class="xe_content">덧글이 이게 뭐냐</div>
-					</div>
-
-					<div class="fdb_nav img_tx">
-					</div>
-				</li>
+				</c:forEach>
 			</ul>
 
 

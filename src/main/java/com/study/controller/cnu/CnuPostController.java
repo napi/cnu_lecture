@@ -1,5 +1,6 @@
 package com.study.controller.cnu;
 
+import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +74,11 @@ public class CnuPostController {
         cnuPost.setPostId(postId);
         /** Dummy CnuPost END **/
 
+        List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
+
         model.addAttribute("cnuPost", cnuPost);
+
+        model.addAttribute("cnuCommentList", cnuCommentList);
 
         return "post/view";
     }
