@@ -12,7 +12,7 @@ public interface CnuRepository {
 
 
 
-
+	
 	int insertCnuPost(CnuPost obj);
 	int deleteCnuPostComment(CnuPostComment obj);
 
