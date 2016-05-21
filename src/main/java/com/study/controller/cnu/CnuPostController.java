@@ -78,8 +78,12 @@ public class CnuPostController {
         CnuPost cnuPost = new CnuPost();
         cnuPost.setPostId(postId);
         cnuPost.setPassword(password);
-    	cnuRepository.deleteCnuPost(cnuPost);
-    	return "redirect:/post";
+    	if(cnuRepository.deleteCnuPost(cnuPost) == 1){
+    		return "redirect:/post";
+    	}
+    	else{
+    		return "redirect:/post/view?postId=" + cnuPost.getPostId() + "&result=false";
+    	}
     }
 
 }
