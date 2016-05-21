@@ -57,7 +57,7 @@ public class CnuPostController {
     @RequestMapping("/view")
     public String view(@RequestParam int postId, Model model) {
 
-        /**
+    	/**
          * Dummy CnuPost Start
          *
          * TODO
@@ -70,11 +70,12 @@ public class CnuPostController {
         cnuPost.setAuthor("Dummy Author");
         cnuPost.setPassword("1111");
         cnuPost.setCreateTime(new Date());
+        cnuPost.increaseViewCount();
         cnuPost.setPostId(postId);
         /** Dummy CnuPost END **/
 
         model.addAttribute("cnuPost", cnuPost);
-
+        cnuRepository.increaseViewCount(cnuPost);
         return "post/view";
     }
 

@@ -12,6 +12,7 @@ public class CnuPost {
     private String title;
     private String content;
     private Date createTime;
+    private int viewCount;
     private boolean isDel;
 
     public int getPostId() {
@@ -69,4 +70,15 @@ public class CnuPost {
     public void setIsDel(boolean isDel) {
         this.isDel = isDel;
     }
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+	public void increaseViewCount(){
+		this.viewCount++;
+	}
 }
