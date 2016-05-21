@@ -70,7 +70,7 @@
 						<td>${cnuPost.author}</td>
 						<td>${cnuPost.viewCount}</td>
 						<td>
-						    <fmt:formatDate type="date" value="${cnuPost.createTime}" />
+						    <fmt:formatDate type="date" value="${cnuPost.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
 						</td>
 						<td><input type="button" value="삭제" onClick="deletePost(${cnuPost.postId})"/></td>
 					</tr>
