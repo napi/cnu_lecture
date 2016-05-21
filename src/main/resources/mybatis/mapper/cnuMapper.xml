@@ -41,4 +41,11 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	
+	<insert id="insertCnuComment" parameterType="CnuComment">
+		INSERT INTO cnu_post_comment
+			(post_id, author, password, comment, create_time)
+		VALUES
+			(#{postId},#{author}, #{password}, #{comment}, NOW())
+	</insert>
 </mapper>
