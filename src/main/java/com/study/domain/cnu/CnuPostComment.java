@@ -3,16 +3,24 @@ package com.study.domain.cnu;
 import java.util.Date;
 
 /**
- * Created by rokim on 2016. 5. 16..
+ * Created by sanggyeong.jo on 2016. 5. 17..
  */
-public class CnuPost {
+public class CnuPostComment {
+    private int commentId;
     private int postId;
     private String author;
     private String password;
-    private String title;
-    private String content;
+    private String comment;
     private Date createTime;
     private boolean isDel;
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
+    }
 
     public int getPostId() {
         return postId;
@@ -38,20 +46,12 @@ public class CnuPost {
         this.password = password;
     }
 
-    public String getTitle() {
-        return title;
+    public String getComment() {
+        return comment;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public Date getCreateTime() {
@@ -62,7 +62,7 @@ public class CnuPost {
         this.createTime = createTime;
     }
 
-    public boolean getIsDel() {
+    public boolean getisDel() {
         return isDel;
     }
 
