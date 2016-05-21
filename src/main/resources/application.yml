@@ -44,10 +44,10 @@ spring:
     username: root
     password: platform
     driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
 #
 #logging:
 #  level:
