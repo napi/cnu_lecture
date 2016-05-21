@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CnuRepository {
    List<CnuPost> selectCnuPostList();
-   List<CnuPostComment> selectCnuPostCommentList();
+   List<CnuPostComment> selectCnuPostCommentList(int postId);
 
 
 
