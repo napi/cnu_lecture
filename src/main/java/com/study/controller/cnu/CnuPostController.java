@@ -75,6 +75,7 @@ public class CnuPostController {
 
         model.addAttribute("cnuPost", cnuPost);
 
+        cnuRepository.selectCnuPost(postId);
         return "post/view";
     }
 
