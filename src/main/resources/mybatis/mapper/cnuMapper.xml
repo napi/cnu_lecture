@@ -13,7 +13,20 @@
 			is_del AS isDel
 		FROM
 			cnu_post
+		WHERE
+			is_del = 0
 	</select>
+	
+	<delete id="selectCnuPost" parameterType="int" >
+		DELETE
+			post_id AS postId,
+			password
+		FROM
+			cnu_post
+		WHERE
+			post_id = #{postId}
+	</delete>
+	
 
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
 		SELECT
@@ -34,7 +47,7 @@
 		INSERT INTO cnu_post
 			(author, password, title, content, create_time)
 		VALUES
-			(#{author}, #{password}, #{content}, #{title}, NOW())
+			(#{author}, #{password}, #{title}, #{content}, NOW())
 		<selectKey resultType="int" keyProperty="postId" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>

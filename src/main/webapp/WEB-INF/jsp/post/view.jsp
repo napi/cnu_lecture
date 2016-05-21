@@ -14,6 +14,7 @@
 
 <div class="main">
 	<div class="border-box community-write">
+	
 		<div class="contents-table"><!-- contents-table Start -->
 			<h3 class="subtitle">[1] 제목입니다.</h3>
 				<table cellspacing="0" class="request m_t10">
@@ -55,6 +56,8 @@
 				</tr>
 				</tbody>
 			</table>
+			
+			</form>
 
 			<h3 class="subtitle">덧글</h3>
 			<ul class="fdb_lst_ul ">
