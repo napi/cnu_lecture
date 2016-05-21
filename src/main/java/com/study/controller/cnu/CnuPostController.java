@@ -73,10 +73,8 @@ public class CnuPostController {
         cnuPost.setCreateTime(new Date());
         cnuPost.setPostId(postId);
         /** Dummy CnuPost END **/
-        List<CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList();
+        List<CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(postId);
         model.addAttribute("cnuPostCommentList", cnuPostCommentList);
-        model.addAttribute("cnuPost", cnuPost);
-
         model.addAttribute("cnuPost", cnuPost);
 
         return "post/view";
