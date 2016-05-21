@@ -59,7 +59,6 @@
                             <div class="meta">
                                 <b>${cnuPostComment.author}</b><span class="date">${cnuPostComment.createTime}</span>
                             </div>
-
                             <div>
                                 <div class="xe_content">${cnuPostComment.comment}</div>
                             </div>
@@ -87,6 +86,7 @@
                             </div>
                         </div>
                         <div class="edit_opt clear" style="padding-top: 10px;">
+
 						<span class="itx_wrp">
 							<label for="nick_name_2756295">글쓴이</label>
 							<input type="text" name="nick_name" id="nick_name_2756295" value="" class="itx n_p">

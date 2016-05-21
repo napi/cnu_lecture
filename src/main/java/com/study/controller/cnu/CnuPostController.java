@@ -1,5 +1,6 @@
 package com.study.controller.cnu;
 
+import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.mybatis.CnuRepository;
@@ -63,6 +64,11 @@ public class CnuPostController {
     	cnuRepository.updateViewCount(postId);
 
         
+        List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
+
+        model.addAttribute("cnuPost", cnuPost);
+        model.addAttribute("cnuCommentList", cnuCommentList);
+
         return "post/view";
     }
 

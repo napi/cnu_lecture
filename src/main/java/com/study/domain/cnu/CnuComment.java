@@ -3,17 +3,24 @@ package com.study.domain.cnu;
 import java.util.Date;
 
 /**
- * Created by rokim on 2016. 5. 16..
+ * Created by junyoung on 2016. 5. 17..
  */
-public class CnuPost {
+public class CnuComment {
+    private int commentId;
     private int postId;
     private String author;
     private String password;
-    private String title;
-    private String content;
-    private int viewCount;
+    private String comment;
     private Date createTime;
     private boolean isDel;
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
+    }
 
     public int getPostId() {
         return postId;
@@ -39,28 +46,12 @@ public class CnuPost {
         this.password = password;
     }
 
-    public String getTitle() {
-        return title;
+    public String getComment() {
+        return comment;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-    
-    public int getViewCount() {
-    	return viewCount;
-    }
-    
-    public void setViewCount(int viewCount) {
-    	this.viewCount = viewCount;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public Date getCreateTime() {
@@ -71,20 +62,12 @@ public class CnuPost {
         this.createTime = createTime;
     }
 
-    public boolean getIsDel() {
-        return isDel;
-    }
-
     public boolean isDel() {
         return isDel;
     }
 
-    public void setIsDel(boolean isDel) {
-        this.isDel = isDel;
+    public void setDel(boolean del) {
+        isDel = del;
     }
 
-    public void setIsDel(int isDel) {
-        if(isDel == 1) this.isDel = true;
-        else this.isDel = false;
-    }
 }

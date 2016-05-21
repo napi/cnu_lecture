@@ -33,6 +33,21 @@
 			is_del = 0
 	</select>
 
+	<select id="selectCnuCommentList" parameterType="int" resultType="CnuComment">
+		SELECT
+		comment_id,
+		post_id AS postId,
+		author,
+		password,
+		comment,
+		create_time AS createTime,
+		is_del
+		FROM
+		cnu_post_comment
+		WHERE
+		post_id = #{postId} AND is_del = 0
+	</select>
+
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
 		SELECT
 			post_id AS postId,

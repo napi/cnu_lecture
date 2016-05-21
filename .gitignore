@@ -3,9 +3,9 @@
 .mvn/
 .project
 .settings/
-target/
+/target/
 /cnu_lecture/
-.idea/
 *.iml
 bin/
 log/
+/.idea/
