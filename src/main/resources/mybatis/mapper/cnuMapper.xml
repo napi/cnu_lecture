@@ -46,7 +46,7 @@
 			(post_id, author, password, comment, create_time)
 		VALUES
 			(#{postId},#{author}, #{password}, #{comment}, NOW())
-		<selectKey resultType="int" keyProperty="commentID" order="AFTER">
+		<selectKey resultType="int" keyProperty="commentId" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
