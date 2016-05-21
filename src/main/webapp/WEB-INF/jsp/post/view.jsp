@@ -84,7 +84,14 @@
 				</li>
 			</ul>
 
-
+			<form action="/post/deleteComment" method="post" onsumit="" name = "deleteForm" id="deleteForm" target="">
+				<div>코맨트 삭제
+					<input type="text" name="commentId" placeholder="코맨트 번호" id="commentId">
+					<input type="text" name="postId" placeholder="게시글 번호" id="postId">
+					<input type="text" name="password" placeholder="비밀번호" id="password">
+					<a href="#" onclick="submit()" class="">삭제</a>
+				</div>
+			</form>	
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
 				<form action="./" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
@@ -95,6 +102,7 @@
 							<textarea id="editor_2756295" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; padding: 4px 6px; width: 936px; font-family: Tahoma, Geneva, sans-serif; font-size: 12px; line-height: 18px;">.<br>.</div>
 						</div>
 					</div>
+					
 					<div class="edit_opt clear" style="padding-top: 10px;">
 						<span class="itx_wrp">
 							<label for="nick_name_2756295">글쓴이</label>
@@ -117,4 +125,10 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	function submit() {
+		document.getElementById("deleteForm").submit();
+		return false;
+	}
+</script>
 </html>
