@@ -10,9 +10,30 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="/css/main.css"/>
 </head>
-<body>
 
-<body>
+<script>
+	function deletePost(postId){
+		var password = prompt("비밀번호 입력 ", "");
+		var form = document.getElementById("deletePost");
+		console.log(postId + ", " + password);
+		form.postId.value=postId;
+		form.password.value=password;
+		form.submit();
+	}
+	
+	function deleteResult(){
+		if(window.location.search.substring(1) == "fail"){
+			alert("삭제 실패");
+		}
+	}
+</script>
+
+<form id=deletePost action=/post/delete method=post>
+	 <input name="postId" type="hidden"/>
+     <input name="password" type="hidden"/>
+</form>
+
+<body onload="deleteResult()">
 <div class="main">
 	<div class="border-box">
 		<div class="contents-table"><!-- ContentsTable Start -->
@@ -30,6 +51,7 @@
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
+					<th scope="col">삭제</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -37,17 +59,20 @@
 					<tr>
 						<td>${cnuPost.postId}</td>
 						<td class="tleft">
-							<a href="#">${cnuPost.title}</a>
+							<a href="post/view?postId=${cnuPost.postId}">${cnuPost.title}</a>
 						</td>
 						<td>${cnuPost.author}</td>
-						<td>Robin Kim</td>
+						<td>${cnuPost.createTime}</td>
+						<td>
+							<input type="button" value="delete" onClick="deletePost(${cnuPost.postId})"/>
+						</td>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- ContentsTable End -->
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">글쓰기</a>
+			<a href="/post/write" class="btn btn-primary right">글쓰기</a>
 		</div>
 	</div>
 </div>
