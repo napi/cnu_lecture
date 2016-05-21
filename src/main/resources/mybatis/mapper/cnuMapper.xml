@@ -31,7 +31,7 @@
 		WHERE
 			post_id = #{postId}
 	</select>
-
+	
 	<insert id="insertCnuPost" parameterType="CnuPost">
 		INSERT INTO cnu_post
 			(author, password, title, content, create_time)
@@ -41,4 +41,16 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	
+	<update id="deleteCnuPostComment" parameterType="CnuPostComment">
+		UPDATE 
+			cnu_post_comment
+		SET	
+			is_del = 1
+		WHERE
+			comment_id = #{commentId} 
+			AND 
+			password = #{password}
+	</update>
+	
 </mapper>

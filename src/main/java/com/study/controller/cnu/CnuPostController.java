@@ -1,6 +1,7 @@
 package com.study.controller.cnu;
 
 import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -83,6 +84,16 @@ public class CnuPostController {
 
 
         return "post/view";
+    }
+    @RequestMapping(value = "/deleteComment", method = RequestMethod.POST)
+    public String deleteComment(int commentId, int postId, String password){
+    	CnuPostComment cnuPostComment = new CnuPostComment();
+    	cnuPostComment.setCommentId(commentId);
+    	cnuPostComment.setPostId(postId);
+    	cnuPostComment.setPassword(password);
+    	
+    	cnuRepository.deleteCnuPostComment(cnuPostComment);
+    	return "redirect:/post/view";
     }
 
 }
