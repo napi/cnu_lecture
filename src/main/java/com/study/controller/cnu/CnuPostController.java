@@ -1,6 +1,7 @@
 package com.study.controller.cnu;
 
 import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuComment;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -53,7 +56,12 @@ public class CnuPostController {
     }
 
     @RequestMapping("/view")
-    public String view() {
+    public String view(@RequestParam int postId, Model model) {
+    	 
+    	 List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
+        CnuPost cnuPost = new CnuPost();
+        model.addAttribute("cnuPost", cnuPost);
+        model.addAttribute("cnuCommentList", cnuCommentList);
         return "post/view";
     }
 
