@@ -2,7 +2,6 @@ package com.study.domain.cnu;
 
 import java.util.Date;
 
-
 public class CnuPostComment {
 	private int commentId;
 	private int postId;

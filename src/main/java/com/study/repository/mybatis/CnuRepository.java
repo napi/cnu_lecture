@@ -16,6 +16,7 @@ public interface CnuRepository {
 
 	int insertCnuPost(CnuPost obj);
 	int deleteCnuPostComment(CnuPostComment obj);
+	int insertCnuPostComment(CnuPostComment obj);
 
 	CnuPost selectCnuBoard(int postId);
 	int updateCnuBoard(CnuPost obj);

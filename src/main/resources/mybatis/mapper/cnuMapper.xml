@@ -20,7 +20,7 @@
 
 	<select id="selectCnuCommentList" parameterType="int" resultType="CnuComment">
 		SELECT
-		comment_id,
+		comment_id AS commentId,
 		post_id AS postId,
 		author,
 		password,
@@ -57,6 +57,7 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
 	<update id="increaseViewCount" parameterType="CnuPost">
 		UPDATE
 			cnu_post
@@ -88,4 +89,10 @@
  		password = #{password}
  	</update>
  	
+	<insert id="insertCnuPostComment" parameterType="CnuPostComment">
+		INSERT INTO cnu_post_comment
+			(post_id,author, password, comment, create_time)
+		VALUES
+			(#{postId},#{author}, #{password}, #{comment}, NOW())
+	</insert>
 </mapper>

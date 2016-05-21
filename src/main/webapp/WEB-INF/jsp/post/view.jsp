@@ -50,7 +50,7 @@
 				<c:forEach items="${cnuCommentList}" var="cnuCommentList">
 				<li class="fdb_itm clear">
 					<div class="meta">
-						<b>${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
+						<b>[${cnuCommentList.commentId}] ${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
 					</div>
 
 					<div>
@@ -64,6 +64,7 @@
 			</ul>
 			<div>
  				<form name="deleteForm" id="deleteForm" action="/post/deleteComment" method="post" target="" onsubmit="">
+					<input type="hidden" name="postId" value="${cnuPost.postId}" />
 					CommentID<input type="text" name="commentID" />
  					password<input type="text" name="password" />
  					<input type="submit" value="삭제" class="btn btn-primary right" />
@@ -73,12 +74,12 @@
 
 			<div class="cmt_editor" style="margin-bottom:10px;">
 				<label for="editor_2756295" class="cmt_editor_tl fl"><em>✔</em><strong>댓글 쓰기</strong></label>
-				<form action="./" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
+				<form action="./view" method="post" onsubmit="" class="bd_wrt cmt_wrt clear" editor_sequence="2756295">
 					<div class="simple_wrt" style="margin-left:0px;margin-right:0px;">
 						<div class="text">
-							<input type="hidden" name="use_html" value="Y">
+							<input type="hidden" name="postId" value="${param.postId}">
 							<input type="hidden" id="htm_2756295" value="n">
-							<textarea id="editor_2756295" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; padding: 4px 6px; width: 936px; font-family: Tahoma, Geneva, sans-serif; font-size: 12px; line-height: 18px;">.<br>.</div>
+							<textarea name="comment" id="editor_2756295" cols="50" rows="4" style="overflow: hidden; min-height: 4em; height: 46px; width: 100%;"></textarea><div class="autogrow-textarea-mirror" style="display: none; word-wrap: break-word; padding: 4px 6px; width: 936px; font-family: Tahoma, Geneva, sans-serif; font-size: 12px; line-height: 18px;">.<br>.</div>
 						</div>
 					</div>
 					<div class="edit_opt clear" style="padding-top: 10px;">

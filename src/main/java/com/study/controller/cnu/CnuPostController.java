@@ -55,7 +55,7 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping("/view")
+    @RequestMapping(value = "/view")
     public String view(@RequestParam int postId, Model model) {
     	CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
     	if(cnuPost.isDel())
@@ -69,9 +69,22 @@ public class CnuPostController {
         model.addAttribute("cnuCommentList", cnuCommentList);
 
         cnuRepository.increaseViewCount(cnuPost);
+
         return "post/view";
     }
 
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public String doWriteComment(int postId,String nick_name,String password,String comment) {
+    	CnuPostComment PostComment = new CnuPostComment();
+    	PostComment.setPostId(postId);
+    	PostComment.setAuthor(nick_name);
+    	PostComment.setPassword(password);
+    	PostComment.setComment(comment);
+
+        cnuRepository.insertCnuPostComment(PostComment);
+
+        return "redirect:/post/view?postId="+postId;
+    }
 
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
@@ -96,15 +109,16 @@ public class CnuPostController {
         }
         return "redirect:/post?incorrectPassword";
     }
-    
+
+
     @RequestMapping( value = "/deleteComment", method = RequestMethod.POST)
-    public String deleteComment(int commentID, String password){
+    public String deleteComment(int postId, int commentID, String password){
 		CnuPostComment cnuPostComment = new CnuPostComment();
 		cnuPostComment.setCommentId(commentID);
 		cnuPostComment.setPassword(password);
 
 		cnuRepository.deleteCnuPostComment(cnuPostComment);
-    	return "redirect:/post/view";
+    	return "redirect:/post/view?postId=" + postId;
     }
 
 }
