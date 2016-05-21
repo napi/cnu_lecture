@@ -41,4 +41,15 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+
+	<update id="deleteCnuPost" parameterType="CnuPost" >
+		UPDATE
+		cnu_post
+		SET
+		is_del = 1
+		WHERE
+		post_id = #{postId}
+		AND
+		password = #{password}
+	</update>
 </mapper>
