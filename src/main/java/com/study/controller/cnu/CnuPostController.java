@@ -64,14 +64,10 @@ public class CnuPostController {
          * post의 detail view 를 담당한 조는 이 dummy 를 삭제하고 자신들이 개발한 코드를 넣어주세요.
          * 그 외에 삭제/comment 를 담당한 학생분들은 이 dummy 를 이용해서 CnuPost 모델을 가져온다고 생각하고 개발해주세요.
          */
-        CnuPost cnuPost = new CnuPost();
-        cnuPost.setTitle("Dummy Title");
-        cnuPost.setContent("Dummy content");
-        cnuPost.setAuthor("Dummy Author");
-        cnuPost.setPassword("1111");
-        cnuPost.setCreateTime(new Date());
-        cnuPost.setPostId(postId);
-        /** Dummy CnuPost END **/
+    	
+        CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
+        if(cnuPost.isDel()) 
+            return "redirect:/post";
 
         model.addAttribute("cnuPost", cnuPost);
 
