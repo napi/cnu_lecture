@@ -111,10 +111,26 @@
 				</form>
 			</div>
 		</div>
+		<div style="padding-top: 25px; float: left;">
+			<form name="deleteForm" id="deleteForm" action="/post/delete" method="post">
+				<input type="hidden" name="postId" value=${cnuPost.postId}>
+				<input type="text" name="password" placeholder="비밀번호" required>
+			</form>
+			<a href="#" onclick="deletePost()" class="btn btn-primary left">삭제</a>
+		</div>
 		<div style="padding-top: 25px;">
-			<a href="#" class="btn btn-primary right">목록</a>
+			<a href="/post" class="btn btn-primary right">목록</a>
 		</div>
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	function deletePost() {
+		document.getElementById("deleteForm").submit();
+	}
+	
+	if(<%=request.getParameter("result")%> == false){
+		alert("삭제 실패");
+	}
+</script>
 </html>
