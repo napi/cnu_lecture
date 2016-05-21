@@ -70,11 +70,12 @@ public class CnuPostController {
         cnuPost.setAuthor("Dummy Author");
         cnuPost.setPassword("1111");
         cnuPost.setCreateTime(new Date());
+        cnuPost.increaseViewCount();
         cnuPost.setPostId(postId);
         /** Dummy CnuPost END **/
 
         model.addAttribute("cnuPost", cnuPost);
-
+        cnuRepository.increaseViewCount(cnuPost);
         return "post/view";
     }
 
