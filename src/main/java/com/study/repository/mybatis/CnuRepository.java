@@ -3,6 +3,7 @@ package com.study.repository.mybatis;
 import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.domain.jpa.JpaBoard;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -25,4 +26,7 @@ public interface CnuRepository {
 
 	CnuPost selectCnuPost(int postId);
 	int increaseViewCount(CnuPost obj);
+
+	int updateCnuPost(CnuPost obj);
+	int deleteCnuPost(CnuPost obj);
 }
