@@ -62,11 +62,12 @@ public class CnuPost {
         this.createTime = createTime;
     }
 
-    public boolean isDel() {
+    public boolean getIsDel() {
         return isDel;
     }
 
-    public void setIsDel(boolean isDel) {
-        this.isDel = isDel;
+    public void setIsDel(int isDel) {
+        if(isDel == 1) this.isDel = true;
+        else this.isDel = false;
     }
 }
