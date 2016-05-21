@@ -32,4 +32,5 @@ public interface CnuRepository {
 	void updateViewCount(int postId);
 
 	int insertCnuPostComment(CnuPostComment obj); // insertcomment
+	int deleteCnuComment(CnuPostComment obj);
 }

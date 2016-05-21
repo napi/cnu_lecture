@@ -93,6 +93,7 @@ public class CnuPostController {
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(int postId, String password) {
+        CnuPost cnuPost = new CnuPost();
 
         CnuPost cnuPost = new CnuPost();
         cnuPost.setPassword(password);
@@ -113,6 +114,19 @@ public class CnuPostController {
         }
         return "redirect:/post?incorrectPassword";
 
+    }
+
+    @RequestMapping( value = "/commentDelete", method = RequestMethod.POST)
+    public String deleteCnuComment(int postID, 
+    								int commentID, 
+    								String password){
+    	CnuPostComment cnuPostComment = new CnuPostComment();
+    	cnuPostComment.setPostId(postID);
+    	cnuPostComment.setCommentId(commentID);
+    	cnuPostComment.setPassword(password);
+
+        cnuRepository.deleteCnuComment(cnuPostComment);
+        return "redirect:/post/view";
     }
 
 }
