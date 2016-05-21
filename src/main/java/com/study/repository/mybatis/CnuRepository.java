@@ -24,4 +24,5 @@ public interface CnuRepository {
 
 
 	CnuPost selectCnuPost(int postId);
+	int increaseViewCount(CnuPost obj);
 }

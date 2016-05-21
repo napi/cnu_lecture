@@ -62,14 +62,13 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+        cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
-
-        model.addAttribute("cnuPost", cnuPost);
-
         model.addAttribute("cnuCommentList", cnuCommentList);
 
+        cnuRepository.increaseViewCount(cnuPost);
         return "post/view";
     }
 
