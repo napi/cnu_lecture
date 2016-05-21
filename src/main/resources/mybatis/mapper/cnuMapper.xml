@@ -76,4 +76,16 @@
 		AND
 		password = #{password}
 	</update>
+
+	<update id="deleteCnuPostComment" parameterType="CnuPostComment" >
+ 		UPDATE
+ 		cnu_post_comment
+ 		SET
+ 		is_del = 1
+ 		WHERE
+ 		comment_id = #{commentId}
+ 		AND
+ 		password = #{password}
+ 	</update>
+ 	
 </mapper>
