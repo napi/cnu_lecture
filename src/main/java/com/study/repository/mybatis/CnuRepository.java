@@ -18,4 +18,5 @@ public interface CnuRepository {
 
 	int updateCnuPost(CnuPost obj);
 	int deleteCnuPost(CnuPost obj);
+	void updateViewCount(int postId);
 }

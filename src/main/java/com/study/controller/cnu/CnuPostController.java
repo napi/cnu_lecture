@@ -60,9 +60,9 @@ public class CnuPostController {
 
         CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
         List<CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(postId);
+    	cnuRepository.updateViewCount(postId);
 
-        model.addAttribute("cnuPost", cnuPost);
-        model.addAttribute("cnuPostCommentList", cnuPostCommentList);
+        
         return "post/view";
     }
 
