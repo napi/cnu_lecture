@@ -93,4 +93,11 @@
 			post_id = #{postId}
 	</update>
 	
+	<!-- comment  -->
+	<insert id="insertCnuPostComment" parameterType="CnuPostComment">
+		INSERT INTO cnu_post_comment
+			(post_id , author, password, comment, create_time)
+		VALUES
+			(#{postId}, #{author}, #{password}, #{comment}, NOW())
+	</insert>
 </mapper>

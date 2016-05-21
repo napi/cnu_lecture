@@ -11,16 +11,25 @@ import java.util.List;
 
 public interface CnuRepository {
 	List<CnuPost> selectCnuPostList();
+
 	List<CnuComment> selectCnuCommentList(int postId);
 
 
 	int insertCnuPost(CnuPost obj);
+
 	List<CnuPostComment> selectCnuPostCommentList(int postId);
+
 	CnuPost selectCnuPost(int postId);
+
 	int updateCnuBoard(CnuPost obj);
+
 	int deleteCnuBoard(int postId, String password);
 
 	int updateCnuPost(CnuPost obj);
+
 	int deleteCnuPost(CnuPost obj);
+
 	void updateViewCount(int postId);
+
+	int insertCnuPostComment(CnuPostComment obj); // insertcomment
 }
