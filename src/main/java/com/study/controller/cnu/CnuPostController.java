@@ -80,7 +80,7 @@ public class CnuPostController {
         List<CnuPostComment> cnuPostCommentList = cnuRepository.selectCnuPostCommentList(postId);
     	cnuRepository.updateViewCount(postId);
 
-        
+
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
 
         model.addAttribute("cnuPost", cnuPost);
@@ -95,7 +95,6 @@ public class CnuPostController {
     public String delete(int postId, String password) {
         CnuPost cnuPost = new CnuPost();
 
-        CnuPost cnuPost = new CnuPost();
         cnuPost.setPassword(password);
         cnuPost.setPostId(postId);
         cnuPost.setIsDel(true);

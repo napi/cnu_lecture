@@ -47,6 +47,7 @@
 					<col style="width:*%">
 					<col style="width:15%">
 					<col style="width:15%">
+					<col style="width:15%">
 				</colgroup>
 				<thead>
 				<tr>
@@ -55,6 +56,7 @@
 					<th scope="col">작성자</th>
 					<th scope="col">작성일</th>
 					<th scope="col">삭제</th>
+					<th scope="col">조회수</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -69,6 +71,7 @@
 						    <fmt:formatDate type="date" value="${cnuPost.createTime}" />
 						</td>
 						<td><input type="button" value="삭제" onClick="deletePost(${cnuPost.postId})"/></td>
+						<td>${cnuPost.viewCount}</td>
 					</tr>
 				</c:forEach>
 				</tbody>

@@ -54,13 +54,14 @@
 
                 <h3 class="subtitle">덧글</h3>
                 <ul class="fdb_lst_ul ">
-                    <c:forEach items="${cnuPostCommentList}" var="cnuPostComment">
+
+                    <c:forEach items="${cnuCommentList}" var="cnuCommentList">
                         <li class="fdb_itm clear">
                             <div class="meta">
-                                <b>${cnuPostComment.author}</b><span class="date">${cnuPostComment.createTime}</span>
+                                <b>${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
                             </div>
                             <div>
-                                <div class="xe_content">${cnuPostComment.comment}</div>
+                                <div class="xe_content">${cnuCommentList.comment}</div>
                             </div>
 
                             <div class="fdb_nav img_tx">
