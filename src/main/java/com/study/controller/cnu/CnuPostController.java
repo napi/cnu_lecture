@@ -74,6 +74,7 @@ public class CnuPostController {
         /** Dummy CnuPost END **/
 
         model.addAttribute("cnuPost", cnuPost);
+        cnuRepository.increaseViewCount(cnuPost);
 
         return "post/view";
     }
