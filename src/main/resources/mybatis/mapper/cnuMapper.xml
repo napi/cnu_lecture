@@ -10,6 +10,7 @@
 			title,
 			content,
 			create_time AS createTime,
+			view_count AS viewCount,
 			is_del AS isDel
 		FROM
 			cnu_post
@@ -41,4 +42,12 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	<update id="increaseViewCount" parameterType="CnuPost">
+		UPDATE
+			cnu_post
+		SET
+			view_count = view_count + 1
+		WHERE
+			post_id = #{postId}
+	</update>
 </mapper>
