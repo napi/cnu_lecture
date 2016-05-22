@@ -3,14 +3,17 @@ package com.study.controller.cnu;
 import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
+import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 import java.util.List;
