@@ -1,6 +1,8 @@
 package com.study.controller.cnu;
 
+import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
+import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.mybatis.CnuRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +34,6 @@ public class CnuPostController {
     @RequestMapping("")
     public String index(Model model) {
         List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
-
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
@@ -59,35 +60,70 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping("/view")
+    @RequestMapping(value = "/view")
     public String view(@RequestParam int postId, Model model) {
+    	CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
+    	if(cnuPost.isDel())
+    	{
+    		return "redirect:/post";
+    	}
+        cnuPost.increaseViewCount();
+		model.addAttribute("cnuPost", cnuPost); 
 
-        /**
-         * Dummy CnuPost Start
-         *
-         * TODO
-         * post의 detail view 를 담당한 조는 이 dummy 를 삭제하고 자신들이 개발한 코드를 넣어주세요.
-         * 그 외에 삭제/comment 를 담당한 학생분들은 이 dummy 를 이용해서 CnuPost 모델을 가져온다고 생각하고 개발해주세요.
-         */
-        CnuPost cnuPost = new CnuPost();
-        cnuPost.setTitle("Dummy Title");
-        cnuPost.setContent("Dummy content");
-        cnuPost.setAuthor("Dummy Author");
-        cnuPost.setPassword("1111");
-        cnuPost.setCreateTime(new Date());
-        cnuPost.setPostId(postId);
-        /** Dummy CnuPost END **/
+        List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
+        model.addAttribute("cnuCommentList", cnuCommentList);
 
-        model.addAttribute("cnuPost", cnuPost);
+        cnuRepository.increaseViewCount(cnuPost);
 
         return "post/view";
     }
 
-    @RequestMapping("/delete")
+    @RequestMapping(value = "/view", method = RequestMethod.POST)
+    public String doWriteComment(int postId,String nick_name,String password,String comment) {
+    	CnuPostComment PostComment = new CnuPostComment();
+    	PostComment.setPostId(postId);
+    	PostComment.setAuthor(nick_name);
+    	PostComment.setPassword(password);
+    	PostComment.setComment(comment);
+
+        cnuRepository.insertCnuPostComment(PostComment);
+
+        return "redirect:/post/view?postId="+postId;
+    }
+
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public String delete(int postId, String password) {
 
+        CnuPost cnuPost = new CnuPost();
+        cnuPost.setPassword(password);
+        cnuPost.setPostId(postId);
+        cnuPost.setIsDel(true);
 
-        return "post/view";
+        CnuPost myRepository = cnuRepository.selectCnuPost(postId);
+        if(myRepository == null){
+            return "redirect:/post?emptyPost";
+        }
+
+        String chk_passowrd=myRepository.getPassword();
+
+        if(chk_passowrd.equals(password))
+        {
+            cnuRepository.deleteCnuPost(cnuPost);
+            return "redirect:/post";
+        }
+        return "redirect:/post?incorrectPassword";
+    }
+
+
+    @RequestMapping( value = "/deleteComment", method = RequestMethod.POST)
+    public String deleteComment(int postId, int commentID, String password){
+		CnuPostComment cnuPostComment = new CnuPostComment();
+		cnuPostComment.setCommentId(commentID);
+		cnuPostComment.setPassword(password);
+
+		cnuRepository.deleteCnuPostComment(cnuPostComment);
+    	return "redirect:/post/view?postId=" + postId;
     }
 
     @ExceptionHandler(value = RuntimeException.class)
