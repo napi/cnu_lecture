@@ -48,9 +48,5 @@
 2. push 한 소스코드를 이곳("https://github.com/napi/cnu_lecture") 저장소의 week1 브랜치에 pull request를 날린다.
 
 ##### 평가
-1. AccessParentTest.java 와 PlayerTest.java의 테스트가 Success 인가?
-2. 요구한 부분에 대해서만 수정이 이루어 졌는가?
-3. pull request가 master 브랜치가 아니라 week1 브랜치로 지정되어졌는가?
-4. commit 메세지가 빈 스트링이거나 의미없는 문자열인가? (감점 요인)
 
 
