@@ -5,6 +5,9 @@ import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.study.service.cnu.CnuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -66,13 +69,13 @@ public class CnuPostController {
     		return "redirect:/post";
     	}
         cnuPost.increaseViewCount();
-		model.addAttribute("cnuPost", cnuPost); 
+        cnuPost.setContent(cnuPost.getContent().replace("\r\n", "<br>"));
+		model.addAttribute("cnuPost", cnuPost);
 
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
         model.addAttribute("cnuCommentList", cnuCommentList);
 
         cnuRepository.increaseViewCount(cnuPost);
-
         return "post/view";
     }
 
