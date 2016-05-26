@@ -5,8 +5,12 @@ import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
+<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+=======
+import com.study.service.cnu.CnuService;
+>>>>>>> refs/remotes/origin/week3_show_comment_count
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,9 +38,12 @@ public class CnuPostController {
     @Autowired
     CnuRepository cnuRepository;
 
+    @Autowired
+    private CnuService cnuService;
+
     @RequestMapping("")
     public String index(Model model) {
-        List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
+        List<CnuPost> cnuPostList = cnuService.getCnuPostList();
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
