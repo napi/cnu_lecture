@@ -65,6 +65,9 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+    	
+    	cnuPost.setContent(cnuPost.getContent().replace("\n\r", "<br>"));
+    	
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
