@@ -5,12 +5,9 @@ import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
-<<<<<<< HEAD
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-=======
 import com.study.service.cnu.CnuService;
->>>>>>> 5070885b7854f0fbe2fe591dee339c53ed70b00a
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
