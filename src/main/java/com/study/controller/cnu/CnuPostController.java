@@ -65,6 +65,11 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+    	
+    	//강사님이 수업시간 끝나기 전 써주신 것
+    	//\r은 필요가 없음. 엔터 2번 해야 하는 현상 발생. 
+    	cnuPost.setContent(cnuPost.getContent().replaceAll("\n", "<br>"));
+    	
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
