@@ -10,9 +10,27 @@
 			title,
 			content,
 			create_time AS createTime,
+			view_count AS viewCount,
 			is_del AS isDel
 		FROM
 			cnu_post
+		WHERE
+			is_del = 0
+	</select>
+
+	<select id="selectCnuCommentList" parameterType="int" resultType="CnuComment">
+		SELECT
+		comment_id AS commentId,
+		post_id AS postId,
+		author,
+		password,
+		comment,
+		create_time AS createTime,
+		is_del
+		FROM
+		cnu_post_comment
+		WHERE
+		post_id = #{postId} AND is_del = 0
 	</select>
 
 	<select id="selectCnuPost" parameterType="int" resultType="CnuPost">
@@ -34,9 +52,47 @@
 		INSERT INTO cnu_post
 			(author, password, title, content, create_time)
 		VALUES
-			(#{author}, #{password}, #{content}, #{title}, NOW())
+			(#{author}, #{password}, #{title}, #{content}, NOW())
 		<selectKey resultType="int" keyProperty="postId" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
+	</insert>
+
+	<update id="increaseViewCount" parameterType="CnuPost">
+		UPDATE
+			cnu_post
+		SET
+			view_count = view_count + 1
+		WHERE
+			post_id = #{postId}
+	</update>
+
+	<update id="deleteCnuPost" parameterType="CnuPost" >
+		UPDATE
+		cnu_post
+		SET
+		is_del = 1
+		WHERE
+		post_id = #{postId}
+		AND
+		password = #{password}
+	</update>
+
+	<update id="deleteCnuPostComment" parameterType="CnuPostComment" >
+ 		UPDATE
+ 		cnu_post_comment
+ 		SET
+ 		is_del = 1
+ 		WHERE
+ 		comment_id = #{commentId}
+ 		AND
+ 		password = #{password}
+ 	</update>
+ 	
+	<insert id="insertCnuPostComment" parameterType="CnuPostComment">
+		INSERT INTO cnu_post_comment
+			(post_id,author, password, comment, create_time)
+		VALUES
+			(#{postId},#{author}, #{password}, #{comment}, NOW())
 	</insert>
 </mapper>

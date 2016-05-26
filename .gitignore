@@ -3,8 +3,10 @@
 .mvn/
 .project
 .settings/
-target/
+/target/
 /cnu_lecture/
-.idea/
 *.iml
+<<<<<<< HEAD
 bin/
+log/
+/.idea/
