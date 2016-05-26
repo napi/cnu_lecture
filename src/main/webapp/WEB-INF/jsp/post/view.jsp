@@ -31,7 +31,7 @@
 				<tr>
 					<th scope="row">작성일 : </th>
 					<td class="tleft">
-						<span>${cnuPost.createTime}	</span>
+						<span><fmt:formatDate value="${cnuPost.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />	</span>
 					</td>
 				</tr>
 				<tr class="end">
@@ -50,7 +50,8 @@
 				<c:forEach items="${cnuCommentList}" var="cnuCommentList">
 				<li class="fdb_itm clear">
 					<div class="meta">
-						<b>[${cnuCommentList.commentId}] ${cnuCommentList.author}</b><span class="date">${cnuCommentList.createTime}</span>
+						<b>[${cnuCommentList.commentId}] ${cnuCommentList.author}</b><span
+							class="date"><fmt:formatDate value="${cnuCommentList.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/> </span>
 					</div>
 
 					<div>
@@ -62,12 +63,20 @@
 				</li>
 				</c:forEach>
 			</ul>
-			<div>
+			<div style="height: 34px; text-align: center">
  				<form name="deleteForm" id="deleteForm" action="/post/deleteComment" method="post" target="" onsubmit="">
 					<input type="hidden" name="postId" value="${cnuPost.postId}" />
-					CommentID<input type="text" name="commentID" />
- 					password<input type="text" name="password" />
- 					<input type="submit" value="삭제" class="btn btn-primary right" />
+					<div class="edit_opt clear" style="padding-top: 10px;">
+						<span class="itx_wrp">
+							<label >comment Id : </label>
+							<input type="text" name="commentID" class="itx n_p">
+						</span>
+						<span class="itx_wrp">
+							<label >비밀번호</label>
+							<input type="password" name="password" class="itx n_p">
+						</span>
+						<input type="submit" value="삭제" class="btn_img">
+					</div>
  				</form>
  				
  			</div>
