@@ -67,24 +67,6 @@ public class CnuPostController {
         return "redirect:/post";
     }
 
-    @RequestMapping(value = "/view")
-    public String view(@RequestParam int postId, Model model) {
-    	CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
-    	if(cnuPost.isDel())
-    	{
-    		return "redirect:/post";
-    	}
-        cnuPost.increaseViewCount();
-		model.addAttribute("cnuPost", cnuPost); 
-
-        List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
-        model.addAttribute("cnuCommentList", cnuCommentList);
-
-        cnuRepository.increaseViewCount(cnuPost);
-
-        return "post/view";
-    }
-
     @RequestMapping(value = "/view", method = RequestMethod.POST)
     public String doWriteComment(int postId,String nick_name,String password,String comment) {
     	CnuPostComment PostComment = new CnuPostComment();
@@ -138,6 +120,27 @@ public class CnuPostController {
         logger.error("Exception Handler IN Contrller : {}", e.toString());
 
         return "post/index";
+    }
+
+    @RequestMapping(value = "/view")
+    public String view(@RequestParam int postId, Model model) {
+        CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
+        if(cnuPost.isDel())
+        {
+            return "redirect:/post";
+        }
+
+        cnuPost.setContent(cnuPost.getContent().replaceAll("\r\n", "<br>"));
+
+        cnuPost.increaseViewCount();
+        model.addAttribute("cnuPost", cnuPost);
+
+        List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
+        model.addAttribute("cnuCommentList", cnuCommentList);
+
+        cnuRepository.increaseViewCount(cnuPost);
+
+        return "post/view";
     }
 
 }
