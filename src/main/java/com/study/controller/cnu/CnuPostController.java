@@ -7,12 +7,12 @@ import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.study.service.cnu.CnuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,8 +27,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/post")
 public class CnuPostController {
-    Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Value("${application.security.salt}") private String securityKey;
 
     @Autowired
@@ -72,7 +70,7 @@ public class CnuPostController {
     	}
         cnuPost.increaseViewCount();
         cnuPost.setContent(cnuPost.getContent().replace("\r\n", "<br>"));
-		model.addAttribute("cnuPost", cnuPost); 
+		model.addAttribute("cnuPost", cnuPost);
 
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
         model.addAttribute("cnuCommentList", cnuCommentList);
@@ -127,13 +125,6 @@ public class CnuPostController {
 
 		cnuRepository.deleteCnuPostComment(cnuPostComment);
     	return "redirect:/post/view?postId=" + postId;
-    }
-
-    @ExceptionHandler(value = RuntimeException.class)
-    public String exception(RuntimeException e) {
-        logger.error("Exception Handler IN Contrller : {}", e.toString());
-
-        return "post/index";
     }
 
 }
