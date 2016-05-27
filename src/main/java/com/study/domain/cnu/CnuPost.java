@@ -1,6 +1,7 @@
 package com.study.domain.cnu;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by rokim on 2016. 5. 16..
@@ -14,6 +15,7 @@ public class CnuPost {
     private Date createTime;
     private int viewCount;
     private boolean isDel;
+    private List<CnuComment> cnuCommentList;
 
     public int getPostId() {
         return postId;
@@ -81,4 +83,12 @@ public class CnuPost {
 	public void increaseViewCount(){
 		this.viewCount++;
 	}
+
+    public List<CnuComment> getCnuCommentList() {
+        return cnuCommentList;
+    }
+
+    public void setCnuCommentList(List<CnuComment> cnuCommentList) {
+        this.cnuCommentList = cnuCommentList;
+    }
 }
