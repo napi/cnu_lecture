@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -28,6 +25,9 @@ public class CnuPostController {
 
     @Autowired
     CnuRepository cnuRepository;
+
+    @Autowired
+    private CnuJdbcRepository cnuJdbcRepository;
 
     @RequestMapping("")
     public String index(Model model) {
@@ -65,13 +65,16 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+
+        cnuPost.setContent(cnuPost.getContent().replaceAll("\r\n", "<br>"));
+
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
         model.addAttribute("cnuCommentList", cnuCommentList);
 
-        cnuRepository.increaseViewCount(cnuPost);
+        cnuJdbcRepository.increaseViewCount(cnuPost);
 
         return "post/view";
     }
@@ -123,5 +126,7 @@ public class CnuPostController {
 		cnuRepository.deleteCnuPostComment(cnuPostComment);
     	return "redirect:/post/view?postId=" + postId;
     }
+
+
 
 }

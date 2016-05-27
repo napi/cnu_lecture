@@ -53,3 +53,10 @@ spring:
 #logging:
 #  level:
 #    org.springframework.web : INFO
+
+---
+srping:
+  profiles: mypc
+
+server:
+  port: 1111
