@@ -62,8 +62,12 @@ public class CnuJdbcRepository {
         return jdbcTemplate.queryForObject("SELECT * FROM cnu_post WHERE post_id = ?", cnuPostMapper, postId);
     }
 
+    @Transactional
     public int increaseViewCount(CnuPost obj) {
-        return jdbcTemplate.update("UPDATE cnu_post SET view_count = view_count + 1 WHERE post_id = ?", obj.getPostId());
+
+        jdbcTemplate.update("UPDATE cnu_post SET view_count = view_count + 1 WHERE post_id = ?", obj.getPostId());
+
+        return 0;
     }
 
 }
