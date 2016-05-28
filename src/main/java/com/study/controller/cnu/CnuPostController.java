@@ -35,7 +35,7 @@ public class CnuPostController {
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
-
+    
     @RequestMapping(value = "/write", method = RequestMethod.GET)
     public String write() {
         return "post/write";
@@ -65,6 +65,7 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+    	cnuPost.setContent(cnuPost.getContent().replaceAll("\n", "<br>"));
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
