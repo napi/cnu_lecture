@@ -67,10 +67,11 @@ public class CnuPostController {
     	}
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
-
+		
         List<CnuComment> cnuCommentList = cnuRepository.selectCnuCommentList(postId);
         model.addAttribute("cnuCommentList", cnuCommentList);
-
+        
+        cnuPost.setContent(cnuPost.getContent().replaceAll("(\r\n|\n)", "<br>"));
         cnuRepository.increaseViewCount(cnuPost);
 
         return "post/view";
