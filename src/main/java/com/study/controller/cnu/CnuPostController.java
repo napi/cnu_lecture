@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -65,6 +66,9 @@ public class CnuPostController {
     	{
     		return "redirect:/post";
     	}
+    	
+    	cnuPost.setContent(cnuPost.getContent().replaceAll("(\r\n|\n)", "<br>"));
+    	
         cnuPost.increaseViewCount();
 		model.addAttribute("cnuPost", cnuPost); 
 
@@ -122,6 +126,16 @@ public class CnuPostController {
 
 		cnuRepository.deleteCnuPostComment(cnuPostComment);
     	return "redirect:/post/view?postId=" + postId;
+    }
+    
+    @ExceptionHandler(RuntimeException.class)
+    public String handler(RuntimeException e) {
+        System.out.println("=========");
+        System.out.println("=========");
+        System.out.println("=========");
+        System.out.println("=========");
+        
+        return "/post";
     }
 
 }
