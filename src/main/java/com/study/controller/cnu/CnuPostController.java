@@ -63,7 +63,7 @@ public class CnuPostController {
         cnuPost.setTitle(title);
         cnuPost.setAuthor(author);
         cnuPost.setPassword(password);
-        cnuPost.setContent(content);
+        cnuPost.setContent(cnuPost.getContent().replaceAll("\n\r","<br>"));
 
         cnuRepository.insertCnuPost(cnuPost);
 
