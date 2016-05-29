@@ -1,5 +1,4 @@
 package com.study.controller.cnu;
-
 import com.study.domain.cnu.CnuComment;
 import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
@@ -7,6 +6,7 @@ import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.study.service.cnu.CnuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+ 
 import java.util.Date;
 import java.util.List;
 
@@ -34,9 +34,12 @@ public class CnuPostController {
     @Autowired
     CnuRepository cnuRepository;
 
+    @Autowired
+    private CnuService cnuService;
+
     @RequestMapping("")
     public String index(Model model) {
-        List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
+        List<CnuPost> cnuPostList = cnuService.getCnuPostList();
         model.addAttribute("cnuPostList", cnuPostList);
         return "post/index";
     }
