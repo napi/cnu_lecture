@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,7 +39,8 @@
 					<th scope="row">내용 : </th>
 					<td class="tleft">
 						<div style="width:640px;">
-							<p>${cnuPost.content}</p>
+							<% pageContext.setAttribute("RN", "\r\n"); %>
+							<p>${fn:replace(cnuPost.content, RN, "<br>")}</p>
 						</div>
 					</td>
 				</tr>
