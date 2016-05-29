@@ -39,17 +39,17 @@ spring:
   profiles : dev
   datasource:
     platform: mysql
+    initialize: false
     data: data-mysql.sql
     url: jdbc:mysql://localhost:3306/cnu?useUnicode=true&amp;characterEncoding=UTF8&amp;characterSetResult=UTF8&amp;jdbcCompliantTruncation=false&amp;connectTimeout=60000&amp;sockTimeout=60000&amp;zeroDateTimeBehavior=convertToNull
     username: root
     password: platform
     driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
 #
 #logging:
 #  level:
 #    org.springframework.web : INFO
-  
