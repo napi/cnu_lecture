@@ -5,11 +5,14 @@ import com.study.domain.cnu.CnuPost;
 import com.study.domain.cnu.CnuPostComment;
 import com.study.repository.jdbc.CnuJdbcRepository;
 import com.study.repository.mybatis.CnuRepository;
+
+import org.mockito.internal.stubbing.answers.ReturnsElementsOf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +32,9 @@ public class CnuPostController {
     @Autowired
     CnuRepository cnuRepository;
 
+    @Autowired
+    CnuJdbcRepository cnujdbcRepository;
+    
     @RequestMapping("")
     public String index(Model model) {
         List<CnuPost> cnuPostList = cnuRepository.selectCnuPostList();
@@ -61,6 +67,7 @@ public class CnuPostController {
     @RequestMapping(value = "/view")
     public String view(@RequestParam int postId, Model model) {
     	CnuPost cnuPost = cnuRepository.selectCnuPost(postId);
+    	cnuPost.setContent(cnuPost.getContent().replaceAll("\n", "<BR>"));
     	if(cnuPost.isDel())
     	{
     		return "redirect:/post";
@@ -123,5 +130,12 @@ public class CnuPostController {
 		cnuRepository.deleteCnuPostComment(cnuPostComment);
     	return "redirect:/post/view?postId=" + postId;
     }
-
+    public String handler(RuntimeException e){
+    	System.out.println("==========");
+    	System.out.println("==========");
+    	System.out.println("==========");
+    	System.out.println("==========");
+    	
+    	return "redirect:/post"; 
+    }
 }
